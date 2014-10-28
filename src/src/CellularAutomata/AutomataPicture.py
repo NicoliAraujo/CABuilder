@@ -5,7 +5,7 @@ Created on 16/10/2014
 '''
 from PIL import Image
 
-import CellularAutomata
+from src.CellularAutomata.CellularAutomata import CellularAutomata
 
 
 class AutomataPicture(CellularAutomata):
@@ -67,20 +67,9 @@ class AutomataPicture(CellularAutomata):
         for line in range (1, width):
             for column in range (0, height):
 
-                try:
-                    b1 = self.getSite(column-1, line-1)
-                except:
-                    b1 = 0
-                
-                try:
-                    b2 = self.getSite(column, line-1)
-                except:
-                    b2 = 0
-                   
-                try:
-                    b3 = self.getSite(column+1, line-1)
-                except:
-                    b3 = 0
+                b1 = self.getSite(column-1, line-1)
+                b2 = self.getSite(column, line-1)
+                b3 = self.getSite(column+1, line-1)
                      
                 newSite = self.autoCel.input(b1,b2,b3)
                 self.putSite(newSite, line, column)
