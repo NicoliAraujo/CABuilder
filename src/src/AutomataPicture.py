@@ -4,8 +4,8 @@ Created on 16/10/2014
 @author: matsu
 '''
 from PIL import Image
-from src.CellularAutomata.CellularAutomata import CellularAutomata
 
+import CellularAutomata
 
 
 class AutomataPicture(CellularAutomata):
