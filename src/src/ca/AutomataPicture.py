@@ -18,49 +18,53 @@ class AutomataPicture():
                branco    0     255
     '''
     
-    '''
-    Constructor
-    '''
+   
     def __init__(self, height, width, automata):
-
+        '''
+        Constructor
+        Instancia height, width, o automato
+        Cria a imagem e poe o 1o pixel preto
+        '''
         self.height = height
         self.width = width
-        self.automata = automata
+        self.automata = automata 
         self.image = Image.new("L", (self.width, self.height), "white")
-        self.image.putpixel( (int(self.height/2), 0) , 0) #Põe o pixel inicial preto
+        self.image.putpixel( (int(self.height/2), 0) , 0)
 
         
     def putPixel(self, value, x, y): 
         '''
-        Pega o 0 ou 1 resultante da regra no hashRule, transforma em pixel branco ou preto
-            e coloca na imagem
+        Pega o 0 ou 1 resultante da regra no hashRule, transforma em pixel branco ou preto e coloca na imagem
         Atencao: x e y se referem aos parametros passados ao modulo putPixel
         '''
         if (value == 0):
-                self.image.putpixel( (y,x) , 255)
+                self.image.putpixel( (y, x) , 255)
         elif (value == 1):
                 self.image.putpixel( (y, x) , 0)
                 
     
     def getSite(self, x, y):
         '''
-        Pega o pixel branco ou preto na posicao (x, y) e transforma em 0 ou 1 
+        Pega o pixel branco ou preto na posicao (x, y) e transforma:
+            Pixel Preto recebe 1
+            Pixel Branco recebe 0
         '''
         try:
             pixel = self.image.getpixel((x, y))
-            if (pixel == 0): #Pixel preto recebe 1
+            if (pixel == 0): 
                 return 1
-            else: #Pixel Branco recebe 0
+            else: 
                 return 0
         except:
-            return 0 #Pixel branco recebe 0
+            return 0 
      
          
     def setImage(self):
         '''
-        
+        Edita a imagem de acordo com o autômato recebido
+        getNext é o método que devolve o dicionario de regras do automato
+        Ao passar line e column pro putPixel, eles viram x e y
         '''
-        self.image.putpixel( (int( self.width/2 ), 0) , 0)
         
         for line in range (1, self.width):
             for column in range (0, self.height):
@@ -75,5 +79,9 @@ class AutomataPicture():
                  
                  
                   
-    def save(self,path,fileType):   
+    def save(self,path,fileType): 
+        '''
+        path e o caminho, que deve incluir a pasta (no main está output)
+        fileType é o formato desejado para a imagem
+        '''  
         self.image.save(path + str(self.automata.getName()) + fileType)
