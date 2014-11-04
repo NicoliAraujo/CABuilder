@@ -21,34 +21,42 @@ class RuleNumber():
         self.buildRule()
 
         
-    '''
-    Construindo o dicionario das regras de uma instancia do automato
-    '''    
+        
     def buildRule(self):
-        ruleInBinary = bin(self.rule)[2:].zfill(8)
+        '''
+        Constroi o dicionario das regras de uma instancia do automato
+        ruleInBinary ja recebe o binário da regra sem os 2 primeiros digitos e preenchido com 0's
+        no for, o dictRule eh relacionado com os digitos do ruleInBinary
+        RuleInBinary eh uma variável local
+        '''
+        ruleInBinary = bin(self.rule)[2:].zfill(8) 
         i = 7
         for d in ruleInBinary:
             self.dictRule[i] = d
-            i -= 1
+            i -= 1 
 
             
-    '''
-    Retorna o resultado da implementacao da regra para tres bits
-    b3 eh o bit menos significativo
-    '''
+    
     def getNext (self, b1, b2, b3):
+        '''
+        Retorna o resultado da implementacao da regra para tres bits
+        b3 eh o bit menos significativo
+        tempString é uma variável local
+        '''
         tempString = int(str(b1) + str(b2) + str(b3),2)
         return int(self.dictRule.get(tempString))
     
-    '''
-    Retorna o dicionario de regras do automato
-    '''
+    
     def getRule(self):
+        '''
+        Retorna o dicionario de regras do automato
+        '''
         return self.dictRule
     
-    '''
-    Retorna o nome do automato, que eh a regra numerica que ele implementa
-    '''
+   
     def getName(self):
+        '''
+        Retorna o nome do automato, que eh a regra numerica que ele implementa
+        '''
         return self.rule
         
