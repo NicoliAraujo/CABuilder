@@ -15,7 +15,8 @@ class RuleNumber():
     '''
     Constructor
     '''
-    def __init__(self, rule):
+    def __init__(self, rule, k):
+        self.k = k
         self.rule = rule
         self.dictRule = {}
         self.buildRule()
@@ -25,9 +26,9 @@ class RuleNumber():
     def buildRule(self):
         '''
         Constroi o dicionario das regras de uma instancia do automato
-        ruleInBinary ja recebe o binário da regra sem os 2 primeiros digitos e preenchido com 0's
+        ruleInBinary ja recebe o binario da regra sem os 2 primeiros digitos e preenchido com 0's
         no for, o dictRule eh relacionado com os digitos do ruleInBinary
-        RuleInBinary eh uma variável local
+        RuleInBinary eh uma variavel local
         '''
         ruleInBinary = bin(self.rule)[2:].zfill(8) 
         i = 7
@@ -41,7 +42,7 @@ class RuleNumber():
         '''
         Retorna o resultado da implementacao da regra para tres bits
         b3 eh o bit menos significativo
-        tempString é uma variável local
+        tempString eh uma variavel local
         '''
         tempString = int(str(b1) + str(b2) + str(b3),2)
         return int(self.dictRule.get(tempString))
