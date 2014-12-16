@@ -27,7 +27,3 @@ class IntKBase:
             rets = alphabet[idx] + rets
         return rets
     
-if __name__ == '__main__':
-    x = IntKBase()
-    print( x.intKbase(600, 3) )
-    pass

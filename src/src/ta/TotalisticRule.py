@@ -5,9 +5,9 @@ Created on 24/10/2014
 '''
 
 '''
-    Explicar aqui a geração dos totalistic rules
+    Explicar aqui a geracao dos totalistic rules
 '''
-from IntKBase import x
+from IntKBase import IntKBase
 class TotalisticRule():
     
 
@@ -24,14 +24,16 @@ class TotalisticRule():
         
     def buildRule(self):
         '''
-        
         '''
-        ruleInKBase = x.intKbase(self.rule, self.k)[2:].zfill(8) 
+        x = IntKBase()
+        ruleInKBase = x.intKbase(self.rule, self.k)
+        if (len(ruleInKBase) < 8):
+            while (len(ruleInKBase) < 8):
+                ruleInKBase = "0" + ruleInKBase 
         i = 7
         for d in ruleInKBase:
             self.dictRule[i] = d
             i -=1
-
             
     
     def getNext (self, nColor):

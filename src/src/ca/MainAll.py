@@ -19,10 +19,3 @@ if __name__ == '__main__':
         pic.setImage()
         print("Automato celular de regra %d foi gerado com sucesso" %rule)
         pic.save('../output/','.png')
-
-   
-    
-    
-    
-    
-    
