@@ -37,6 +37,9 @@ class AutomataPicture():
     
     
     def buildDictColor(self, k):
+        '''
+        Constroi o dicionario de k cores, que relaciona cada cor a um valor de 0 a k-1
+        '''
         
         self.dictColor = {}
         temp = 255/(self.k - 1)
@@ -48,16 +51,22 @@ class AutomataPicture():
         print("DictColor>")
         print(self.dictColor)
      
+     
+     
     def SearchSite(self, color):
+        '''
+        Diz o valor k (a chave) de uma cor do dicionario de cores
+        '''
         for i in self.dictColor:
-            if((color<=self.dictColor[i]+2) & (color>=self.dictColor[i]-2 ) ): # tratar
+            if((color<=self.dictColor[i]+2) & (color>=self.dictColor[i]-2 ) ): # admite uma margem de erro de 2 para mais ou menos
                 return i
                 
           
         
     def getSite(self, x, y):
         '''
-        Pega os pixels nas posicoes 
+        Pega os pixels nas tres colunas superiores ao pixel 
+        Consulta o dicionario de cores para descobrir a chave correspondente, usando a funcao searchSite
             
         '''
         
@@ -88,15 +97,20 @@ class AutomataPicture():
         '''
         
         for line in range (1, self.width):
+            
             for column in range (0, self.height):
-                (b1, b2, b3) = self.getSite(column, line-1)
+                
+                (b1, b2, b3) = self.getSite(column, line-1) #pega as chaves dos tres sites superiores ao atual
                 print((b1, b2, b3))
-                newSite = self.automata.getNext(b1, b2, b3)
+                
+                newSite = self.automata.getNext(b1, b2, b3) # consulta o dicionario de regras do totalisticRule 
                 print(newSite)
+                
                 try:
-                    newPixel = self.dictColor[newSite]
+                    newPixel = int( self.dictColor[newSite] )  #retorna a cor correspondente à chave
                 except:
                     newPixel = 255 #vai retornar um pixel branco
+                    
                 print(newPixel)
                 self.image.putpixel((column, line), newPixel)
                 
