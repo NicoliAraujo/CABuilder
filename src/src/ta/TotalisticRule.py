@@ -41,8 +41,7 @@ class TotalisticRule():
         for d in ruleInKBase:
             self.dictRule[i] = d
             i -=1
-        print ("dictRule: " )
-        print((self.dictRule))
+
             
     
     
@@ -51,21 +50,21 @@ class TotalisticRule():
         Retorna o resultado da implementacao da regra para tres bits
         b1, b2 e b3 sao strings 
         '''
-        print ("rule4" + str(b1) + " " + str(b2) + " " + str(b3) + " : ")
-        print(self.dictRule [b1 + b2 + b3])
-        return self.dictRule [b1 + b2 + b3]
+        a = self.dictRule [int(b1) + int(b2) + int(b3)]
+        return a
     
     
     
-    def getRule(self):
+    def getRule(self, chave):
         '''
         Retorna o dicionario de regras do automato
         '''
-        return self.dictRule
+        return self.dictRule[chave]
         
     
     def getSite(self, b):
         return self.dictRule[b]
+    
     
     def getTons(self):
         '''

@@ -35,7 +35,6 @@ class AutomataPicture():
         self.image = Image.new("L", (self.width, self.height), "white")
         self.image.putpixel( (int(self.height/2), 0) , 0) 
     
-    
     def buildDictColor(self, k):
         '''
         Constroi o dicionario de k cores, que relaciona cada cor a um valor de 0 a k-1
@@ -46,47 +45,56 @@ class AutomataPicture():
         aux = 0
         
         for i in range (0, self.k):
-            self.dictColor[i] = 255 - aux
+            self.dictColor[i] = int(255 - aux)
             aux = temp + aux
-        print("DictColor>")
-        print(self.dictColor)
-     
-     
-     
+
     def SearchSite(self, color):
         '''
         Diz o valor k (a chave) de uma cor do dicionario de cores
         '''
-        for i in self.dictColor:
-            if((color<=self.dictColor[i]+2) & (color>=self.dictColor[i]-2 ) ): # admite uma margem de erro de 2 para mais ou menos
+        print("Cor que foi pro dictColor: ")
+        print(color)
+        
+        for i in (self.dictColor):
+            if(self.dictColor[i] == color): 
+
                 return i
-                
+
+  
+    def putPixel(self, value, x, y): 
+        '''
+        Pega o valor resultante da regra no dictRule, transforma em pixel usando o dictColor e coloca na imagem
+        Atencao: x e y se referem aos parametros passados ao modulo putPixel
+        '''
+
+        nSite = self.dictColor[int(value)] 
+
+        self.image.putpixel( (y, x) , nSite)
+        
           
         
     def getSite(self, x, y):
         '''
-        Pega os pixels nas tres colunas superiores ao pixel 
-        Consulta o dicionario de cores para descobrir a chave correspondente, usando a funcao searchSite
-            
+        Pega o pixel na posicao (x, y) e transforma no correspondente do dictRule
         '''
         
-        p1 = self.SearchSite( self.tryGetSite(x-1, y) ) 
-        p2 = self.SearchSite( self.tryGetSite(x, y) )
-        p3 = self.SearchSite( self.tryGetSite(x+1, y) )
-        oldSite = (p1, p2, p3)
-        print ("oldsite> ")
-        print(oldSite)
-        return oldSite
+
 
 
       
             
     def tryGetSite(self, x, y):
+        '''
+        Pega o pixel  na posicao (x, y) e transforma no equivalente do dictColors
+        '''
         try:
             pixel = self.image.getpixel((x, y))
-            return pixel
+            chave = self.SearchSite(pixel)
+            site = self.automata.getRule(chave)
+
+            return site
         except:
-            return 255 #retorna branco
+            return 0 # retorna equivalente branco 
         
          
     def setImage(self):
@@ -99,21 +107,16 @@ class AutomataPicture():
         for line in range (1, self.width):
             
             for column in range (0, self.height):
+                b1 = self.tryGetSite(column-1, line-1)
+                print ("b1: " + str(b1))
+                b2 = self.tryGetSite(column, line-1)
+                print ("b2: " + str(b2))
+                b3 = self.tryGetSite(column+1, line-1)
+                print ("b3: " + str(b3))
                 
-                (b1, b2, b3) = self.getSite(column, line-1) #pega as chaves dos tres sites superiores ao atual
-                print((b1, b2, b3))
-                
-                newSite = self.automata.getNext(b1, b2, b3) # consulta o dicionario de regras do totalisticRule 
-                print(newSite)
-                
-                try:
-                    newPixel = int( self.dictColor[newSite] )  #retorna a cor correspondente à chave
-                except:
-                    newPixel = 255 #vai retornar um pixel branco
-                    
-                print(newPixel)
-                self.image.putpixel((column, line), newPixel)
-                
+                newSite = self.automata.getNext(b1, b2, b3)
+                self.putPixel(newSite, line, column)
+
         return self.image    
                  
                  

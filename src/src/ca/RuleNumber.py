@@ -15,8 +15,8 @@ class RuleNumber():
     '''
     Constructor
     '''
-    def __init__(self, rule, k):
-        self.k = k
+    def __init__(self, rule):
+
         self.rule = rule
         self.dictRule = {}
         self.buildRule()

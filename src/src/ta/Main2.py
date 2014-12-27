@@ -18,7 +18,7 @@ if __name__ == '__main__':
     '''
     
     
-    pic = AutomataPicture(4,10,777, 3)
+    pic = AutomataPicture(50,50,777, 3)
     pic.setImage()
     print("Operacao terminada")
     pic.save('../output/','.png')

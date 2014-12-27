@@ -61,8 +61,8 @@ class AutomataPicture():
          
     def setImage(self):
         '''
-        Edita a imagem de acordo com o autômato recebido
-        getNext é o método que devolve o dicionario de regras do automato
+        Edita a imagem de acordo com o automato recebido
+        getNext eh o metodo que devolve o dicionario de regras do automato
         Ao passar line e column pro putPixel, eles viram x e y
         '''
         
@@ -81,7 +81,7 @@ class AutomataPicture():
                   
     def save(self,path,fileType): 
         '''
-        path e o caminho, que deve incluir a pasta (no main está output)
-        fileType é o formato desejado para a imagem
+        path e o caminho, que deve incluir a pasta (no main esta output)
+        fileType eh o formato desejado para a imagem
         '''  
         self.image.save(path + str(self.automata.getName()) + fileType)
