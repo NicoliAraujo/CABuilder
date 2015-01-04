@@ -7,7 +7,7 @@ Created on 24/10/2014
 '''
     Explicar aqui a geracao dos totalistic rules
 '''
-from IntKBase import IntKBase
+from ta.IntKBase import IntKBase
 class TotalisticRule():
     
 
@@ -21,8 +21,9 @@ class TotalisticRule():
         self.k = k
         self.nTons = ( 3 * self.k ) - 2
         self.dictRule = {}
-        self.buildRule(rule, k)
-
+        self.buildRule(self.rule, self.k)
+        
+        
         
       
     def buildRule(self, rule, k):
@@ -41,7 +42,7 @@ class TotalisticRule():
         for d in ruleInKBase:
             self.dictRule[i] = d
             i -=1
-
+       
             
     
     
@@ -50,7 +51,9 @@ class TotalisticRule():
         Retorna o resultado da implementacao da regra para tres bits
         b1, b2 e b3 sao strings 
         '''
+        
         a = self.dictRule [int(b1) + int(b2) + int(b3)]
+        
         return a
     
     
@@ -59,13 +62,10 @@ class TotalisticRule():
         '''
         Retorna o dicionario de regras do automato
         '''
+       
         return self.dictRule[chave]
         
-    
-    def getSite(self, b):
-        return self.dictRule[b]
-    
-    
+
     def getTons(self):
         '''
         Retorna a quantidade de tons que existe para um numero k de cores
