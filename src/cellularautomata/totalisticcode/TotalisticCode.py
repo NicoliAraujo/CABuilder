@@ -4,12 +4,12 @@ Created on 24/10/2014
 @author: matsu
 '''
 
-from trunk.src.cellularautomata.CelularAutomata import CelularAutomata
+from trunk.src.cellularautomata.CellularAutomata import CellularAutomata
 '''
     Explicar aqui a geracao dos totalistic rules
 '''
 
-class TotalisticCode(CelularAutomata):
+class TotalisticCode(CellularAutomata):
     
 
     
@@ -17,7 +17,7 @@ class TotalisticCode(CelularAutomata):
         '''
         Inicia o totalistic Rule: pega a regra e a quantidadede cores, e gera o dicionario
         '''
-        CelularAutomata.__init__(self, rule, k)
+        CellularAutomata.__init__(self, rule, k)
 
         
 

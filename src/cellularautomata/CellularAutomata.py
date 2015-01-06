@@ -5,7 +5,7 @@ Created on 04/01/2015
 '''
 from trunk.src.util.IntKBase import IntKBase 
 
-class CelularAutomata():
+class CellularAutomata():
     '''
     Classe geral de automatos celulares
     '''
