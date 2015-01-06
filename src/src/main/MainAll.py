@@ -4,7 +4,7 @@ Created on 20/10/2014
 @author: matsu
 '''
 from RuleNumber import RuleNumber
-from AutomataPicture import AutomataPicture
+from rn import AutoPicRN
 
 
 if __name__ == '__main__':
@@ -15,7 +15,7 @@ if __name__ == '__main__':
         rule = i
         
         ca = RuleNumber(rule)
-        pic = AutomataPicture(1024,1024,ca)
+        pic = AutoPicRN(1024,1024,ca)
         pic.setImage()
         print("Automato celular de regra %d foi gerado com sucesso" %rule)
         pic.save('../output/','.png')
