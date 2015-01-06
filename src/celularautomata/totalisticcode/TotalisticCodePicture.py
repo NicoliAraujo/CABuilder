@@ -4,10 +4,10 @@ Created on 16/10/2014
 @author: matsu
 @author: elloa
 '''
-from CelAuto.AutomataPicture import AutomataPicture
-from ta.TotalisticRule import TotalisticRule
+from trunk.src.celularautomata.AutomataPicture import AutomataPicture
+from trunk.src.celularautomata.totalisticcode import TotalisticCode
 
-class AutoPicTA(AutomataPicture):
+class TotalisticCodePicture(AutomataPicture):
     '''
     classdocs
     '''
@@ -22,7 +22,7 @@ class AutoPicTA(AutomataPicture):
         self.k = k
         AutomataPicture.__init__(self, height, width, rule, firstK)
 
-        self.automata = TotalisticRule(self.rule, self.k)
+        self.automata = TotalisticCode(self.rule, self.k)
 
     
     def save(self,path,fileType): 

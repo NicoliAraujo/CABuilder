@@ -3,7 +3,7 @@ Created on 04/01/2015
 
 @author: matsu
 '''
-from ta.IntKBase import IntKBase
+from trunk.src.util.IntKBase import IntKBase 
 
 class CelularAutomata():
     '''

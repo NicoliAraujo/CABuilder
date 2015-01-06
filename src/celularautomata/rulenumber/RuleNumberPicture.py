@@ -5,9 +5,10 @@ Created on 16/10/2014
 @author: elloa
 '''
 
-from CelAuto.AutomataPicture import AutomataPicture
-from rn.RuleNumber import RuleNumber
-class AutoPicRN(AutomataPicture):
+from trunk.src.celularautomata.AutomataPicture import AutomataPicture
+from trunk.src.celularautomata.rulenumber.RuleNumber import RuleNumber
+
+class RuleNumberPicture(AutomataPicture):
     '''
     classdocs
     '''

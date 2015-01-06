@@ -4,12 +4,12 @@ Created on 24/10/2014
 @author: matsu
 '''
 
-from CelAuto.CelularAutomata import CelularAutomata
+from trunk.src.celularautomata.CelularAutomata import CelularAutomata
 '''
     Explicar aqui a geracao dos totalistic rules
 '''
 
-class TotalisticRule(CelularAutomata):
+class TotalisticCode(CelularAutomata):
     
 
     
