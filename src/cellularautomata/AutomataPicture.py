@@ -33,7 +33,7 @@ class AutomataPicture():
         self.image.putpixel( (int(self.height/2), 0) , self.dictColor[firstK])
     
     
-    def SearchSite(self, color):
+    def searchSite(self, color):
         '''
         Diz o valor k (a chave) de uma cor do dicionario de cores
         '''
@@ -76,7 +76,7 @@ class AutomataPicture():
         try:
             pixel = self.image.getpixel((x, y))
          
-            chave = self.SearchSite(pixel)
+            chave = self.searchSite(pixel)
             
             return chave
         
