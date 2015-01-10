@@ -4,7 +4,7 @@ Created on 16/10/2014
 @author: matsu
 @author: elloa
 '''
-from trunk.src.cellularautomata.CellularAutomata import CellularAutomata
+from src.cellularautomata.CellularAutomata import CellularAutomata
 
 '''
     Classe de Automatos gerados por uma regra numerica

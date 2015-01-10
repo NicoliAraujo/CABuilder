@@ -5,8 +5,8 @@ Created on 16/10/2014
 @author: elloa
 '''
 
-from trunk.src.cellularautomata.AutomataPicture import AutomataPicture
-from trunk.src.cellularautomata.rulenumber.RuleNumber import RuleNumber
+from src.cellularautomata.AutomataPicture import AutomataPicture
+from src.cellularautomata.rulenumber.RuleNumber import RuleNumber
 
 class RuleNumberPicture(AutomataPicture):
     '''

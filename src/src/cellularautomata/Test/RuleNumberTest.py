@@ -4,7 +4,7 @@ Created on 01/11/2014
 @author: Elloa
 '''
 import unittest
-from trunk.src.cellularautomata.rulenumber.RuleNumber import RuleNumber
+from src.cellularautomata.rulenumber.RuleNumber import RuleNumber
 
 class Test(unittest.TestCase):
 
