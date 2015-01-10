@@ -4,8 +4,8 @@ Created on 16/10/2014
 @author: matsu
 @author: elloa
 '''
-from trunk.src.cellularautomata.AutomataPicture import AutomataPicture
-from trunk.src.cellularautomata.totalisticcode.TotalisticCode import TotalisticCode
+from src.cellularautomata.AutomataPicture import AutomataPicture
+from src.cellularautomata.totalisticcode.TotalisticCode import TotalisticCode
 
 class TotalisticCodePicture(AutomataPicture):
     '''

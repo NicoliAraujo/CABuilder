@@ -4,7 +4,7 @@ Created on 20/10/2014
 @author: matsu
 '''
 
-from trunk.src.cellularautomata.totalisticcode.TotalisticCodePicture import TotalisticCodePicture
+from src.cellularautomata.totalisticcode.TotalisticCodePicture import TotalisticCodePicture
 
 
 if __name__ == '__main__':
@@ -12,11 +12,11 @@ if __name__ == '__main__':
             pic = AutoPicTA(altura, largura, regra, k(ou n de cores), 1o k)
     '''
     
-    pic = TotalisticCodePicture(50, 50, 777, 3, 1)
+    pic = TotalisticCodePicture(50, 50, 789, 3, 1)
     
     pic.setImage()
     print("Operacao terminada")
-    pic.save('../output/','.png')
+    pic.save('../output','.png')
 
    
     
