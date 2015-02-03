@@ -4,16 +4,16 @@ Created on 16/10/2014
 @author: matsu
 @author: elloa
 '''
-from trunk.src.cellularautomata.CelularAutomata import CelularAutomata
+from trunk.src.cellularautomata.CellularAutomata import CellularAutomata
 
 '''
     Classe de Automatos gerados por uma regra numerica
     Segue a definicao de Wolfram para Cellular Automata Rule Number
 '''
-class RuleNumber(CelularAutomata):
+class RuleNumber(CellularAutomata):
 
     def __init__(self, rule, k=2):
-        CelularAutomata.__init__(self, rule, k)
+        CellularAutomata.__init__(self, rule, k)
 
 
     

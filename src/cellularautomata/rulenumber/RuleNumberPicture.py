@@ -19,13 +19,13 @@ class RuleNumberPicture(AutomataPicture):
                branco    0     255
     '''
     
-   
-    def __init__(self, height, width, rule):
+    def __init__(self, height, width, rule, firstK = 0):
         '''
         Constructor
         Como eh um automato celular simples, o numero de estados eh sempre 2, e o primeiro pixel eh sempre preto
         '''
-        AutomataPicture.__init__(self, height, width, rule, k = 2, firstK = 1)
+        self.k = 2
+        AutomataPicture.__init__(self, height, width, rule, firstK = 1)
         self.automata = RuleNumber(self.rule)
         
 
