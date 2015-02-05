@@ -5,7 +5,7 @@ Created on 16/10/2014
 @author: elloa
 '''
 from trunk.src.cellularautomata.AutomataPicture import AutomataPicture
-from trunk.src.cellularautomata.totalisticcode import TotalisticCode
+from trunk.src.cellularautomata.totalisticcode.TotalisticCode import TotalisticCode
 
 class TotalisticCodePicture(AutomataPicture):
     '''
