@@ -16,7 +16,7 @@ if __name__ == '__main__':
     
     pic.setImage()
     print("Operacao terminada")
-    pic.save('../output/','.png')
+    pic.save('../output/','.jpg')
 
    
     

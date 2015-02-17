@@ -6,6 +6,7 @@ Created on 20/10/2014
 
 from trunk.src.cellularautomata.rulenumber.RuleNumberPicture import RuleNumberPicture
 
+
 if __name__ == '__main__':
     
     

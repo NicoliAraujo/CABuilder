@@ -10,7 +10,7 @@ from trunk.src.cellularautomata.rulenumber.RuleNumberPicture import RuleNumberPi
 if __name__ == '__main__':
     
     
-    pic = RuleNumberPicture(20,20,30)
+    pic = RuleNumberPicture(50,50,30)
     pic.setImage()
     print("Operacao terminada")
     pic.save('../output/','.jpg')
