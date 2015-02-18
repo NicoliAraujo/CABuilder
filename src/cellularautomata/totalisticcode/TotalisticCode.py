@@ -3,7 +3,8 @@
 """
 Created on 24/10/2014
 
-@author: nicoli
+@author: Nicoli Araújo
+@author: Elloá B. Guedes
 """
 
 from __future__ import unicode_literals
@@ -12,15 +13,16 @@ from trunk.src.cellularautomata.CellularAutomata import CellularAutomata
 
 
 class TotalisticCode(CellularAutomata):
-    """
-    Classe que define os autômatos do tipo totalistico, que podem ter mais de dois estados possíveis para
-    cada célula. Além disso, para definir o estado de uma célula, é feita a média entre as três células vizinhas 
-    da iteração imediatamente anterior.
+    """Classe que define os autômatos do tipo totalistico.
+    
+    Um TotalisticCode pode ter mais de dois estados possíveis para cada célula. Além disso, para definir 
+    o estado de uma célula, é feita a média entre as três células vizinhas da iteração imediatamente anterior.
     """
           
     def getNext (self, b1, b2, b3):
-        """(int, int, int) -> int
-        Método que define o estado de uma célula a partir do estado de três vizinhas. Retorna o valor
+        """Retorna dictRule[b1+b2+b3]
+        
+        Define o estado de uma célula a partir do estado de três vizinhas, armazenados em b1, b2 e b3. Retorna o valor
         no dictRule referente à soma dos três estados fornecidos.
         
         >>> tc = TotalisticCode(200, 3)

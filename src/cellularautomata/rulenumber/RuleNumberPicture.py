@@ -3,8 +3,8 @@
 """
 Created on 16/10/2014
 
-@author: matsu
-@author: elloa
+@author: Nicoli Araújo
+@author: Elloá B. Guedes
 """
 
 from __future__ import unicode_literals
@@ -18,23 +18,23 @@ class RuleNumberPicture(AutomataPicture):
     """Classe responsável por criar a imagem de um automato celular  do tipo Elementar."""
     
     def __init__(self, height, width, rule):
+        """Construtor da classe. Aqui, há a instância de um autômato celular do tipo Elementar.
         
-        """(int, int, int, int)
-        Construtor da classe. Como é um autômato celular simples, o número de estados é sempre 2, 
-        e o primeiro pixel é sempre preto.
+        Como é um autômato celular simples, o número de estados é sempre 2, e o primeiro pixel é sempre preto.
+        
+        heihgt, width, rule: int
         """
-
         AutomataPicture.__init__(self, height, width, rule, k = 2, firstK = 1)
         self.automata = RuleNumber(rule)
         
 
     def save(self,path,fileType): 
-        """(string, string)
+        """Salva a imagem no local path, com tipo filetype. 
+        
         Método que salva a imagem criada no caminho path, com o formato fileType. No nome do arquivo de imagem 
-        salvo, consta o nome do autômato.
+        salvo consta o nome do autômato.
         
         path(string) - caminho, que deve incluir a pasta
         fileType (string) - formato desejado para a imagem
         """
-         
         self.image.save(path + '/RN/' + str(self.automata.getName()) + fileType)

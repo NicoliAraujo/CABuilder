@@ -6,26 +6,24 @@ Created on 28/11/2014
 """
 
 class IntKBase: 
-    """
-    Classe que abriga o método publicado por Mark Borgerding no dia 15/02/2010 no site StackOverflow.
+    """Classe que abriga o método publicado por Mark Borgerding no dia 15/02/2010 no site StackOverflow.
     
     Atributos da classe:
         
         num         (int)  - número que que deve ser transformado
         b           (int)  - base na qual num deve ser escrito
         numInBase (string) - num escrito na base b
-        
-        
     """
     def __init__(self, num, b):
         self.num = num
         self.b = b
-        
         self.numInBase = self.intKbase(self.num, self.b)
         
     def intKbase(self, x,b):
-        """(int, int) -> string
-        Método que transforma num em um número na base b, e o retorna.
+        """Retorna x na base b.
+        
+        Método que transforma x em um número na base b, e o retorna.
+        
         b deve ser estar entre 2 e 32, ou seja, 2 < = b < = 32.
         b também pode ser 64, mas somente 64.
         

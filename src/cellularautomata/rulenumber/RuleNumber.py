@@ -3,8 +3,8 @@
 """
 Created on 16/10/2014
 
-@author: nicoli
-@author: elloa
+@author: Nicoli Araújo
+@author: Elloá B. Guedes
 """
 
 from __future__ import unicode_literals
@@ -13,24 +13,25 @@ from trunk.src.cellularautomata.CellularAutomata import CellularAutomata
 
 
 class RuleNumber(CellularAutomata):
+    """Classe de Autômatos celulares do tipo elementar. 
+    
+    Em um RuleNumber, as células podem apresentar apenas dois estados, levando em consideração os estados 
+    das três células vizinhas presentes na iteração imediatamente anterior.
     """
-    Classe de Autômatos celulares do tipo elementar, cujas células podem 
-    apresentar apenas dois estados, levando em consideração os estados 
-    das tres celulas vizinhas presentes na iteração imediatamente anterior.
 
-    """
-
-    def __init__(self, rule, k=2):
-        """(int)
-        Construtor da classe RuleNumber. Aqui, é implementado o conceito de apenas dois estados, 
-        dando-se a k o valor 2.  
+    def __init__(self, rule):
+        """Construtor da classe RuleNumber. 
+        
+        Aqui, são instanciados rule e k. É implementado o conceito de apenas dois estados, dando-se
+        a k fixamente o valor 2. Assim, não é necessário declarar k. 
         """
-        CellularAutomata.__init__(self, rule, k)
+        CellularAutomata.__init__(self, rule, k = 2)
 
     def getNext (self, b1, b2, b3):
-        """(int, int, int) -> int
-        Método que recebe o estado de tres vizinhas, transforma-os em uma chave e retorna o valor
-        ao qual esta associada. 
+        """Retorna dictRule[b1b2b3], sendo b1b2b3 os três parâmetros concatenados.
+        
+        Método que recebe o estado de tres vizinhas, concatena-os, transforma-os em inteiro para ser chave
+        retornar o valor ao qual esta associado no dictRule. 
         
         >>> rn = RuleNumber(45)
         
@@ -45,7 +46,6 @@ class RuleNumber(CellularAutomata):
         
         >>> rn.getNext(1, 1, 1)
         0
-        
         """
         temp = int( str(b1) + str(b2) + str(b3),2 )
         
