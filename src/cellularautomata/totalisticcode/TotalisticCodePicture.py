@@ -9,18 +9,19 @@ Created on 16/10/2014
 
 from __future__ import unicode_literals
 
-from trunk.src.cellularautomata.AutomataPicture import AutomataPicture
-from trunk.src.cellularautomata.totalisticcode.TotalisticCode import TotalisticCode
+from cellularautomata.AutomataPicture import AutomataPicture
+from cellularautomata.totalisticcode.TotalisticCode import TotalisticCode
 
 
 class TotalisticCodePicture(AutomataPicture):
-    """Classe responsável por criar uma imagem que represente autômatos celulares do tipo Totalístico."""
+    """Subclasse de AutomataPicture responsável por criar uma imagem que represente autômatos celulares Totalísticos."""
    
     def __init__(self, height, width, rule, k, firstK):
         """Construtor da classe. Aqui, há a instância de um autômato celular do tipo Totalístico.
         
+        Estende AutomataPicture.__init(height, width, rule, k, firstK)
+        
         height, width, rule, k, firstk: int
-        Para mais detalhes, ver AutomataPicture
         """
         AutomataPicture.__init__(self, height, width, rule, k, firstK)
         self.automata = TotalisticCode(rule, k)
@@ -28,6 +29,8 @@ class TotalisticCodePicture(AutomataPicture):
     
     def save(self,path,fileType): 
         """Salva a imagem no local path, com tipo filetype. 
+        
+        Sobrescreve AutomataPicture.save(path, fileType).
         
         O automato é salvo com o nome, a base em que é gerado e a cor do seu primeiro pixel.
         

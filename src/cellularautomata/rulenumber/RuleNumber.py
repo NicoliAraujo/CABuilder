@@ -9,11 +9,11 @@ Created on 16/10/2014
 
 from __future__ import unicode_literals
 
-from trunk.src.cellularautomata.CellularAutomata import CellularAutomata
+from cellularautomata.CellularAutomata import CellularAutomata
 
 
 class RuleNumber(CellularAutomata):
-    """Classe de Autômatos celulares do tipo elementar. 
+    """Subclasse de CellularAutomata. Define autômatos celulares do tipo elementar. 
     
     Em um RuleNumber, as células podem apresentar apenas dois estados, levando em consideração os estados 
     das três células vizinhas presentes na iteração imediatamente anterior.
@@ -22,6 +22,8 @@ class RuleNumber(CellularAutomata):
     def __init__(self, rule):
         """Construtor da classe RuleNumber. 
         
+        Estende CellularAutomata.__init(rule, k).
+        
         Aqui, são instanciados rule e k. É implementado o conceito de apenas dois estados, dando-se
         a k fixamente o valor 2. Assim, não é necessário declarar k. 
         """
@@ -29,6 +31,8 @@ class RuleNumber(CellularAutomata):
 
     def getNext (self, b1, b2, b3):
         """Retorna dictRule[b1b2b3], sendo b1b2b3 os três parâmetros concatenados.
+         
+        Sobrescreve CellularAutomata.getNext(b1, b2, b3).
         
         Método que recebe o estado de tres vizinhas, concatena-os, transforma-os em inteiro para ser chave
         retornar o valor ao qual esta associado no dictRule. 

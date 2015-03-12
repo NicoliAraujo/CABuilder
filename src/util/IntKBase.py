@@ -14,6 +14,7 @@ class IntKBase:
         b           (int)  - base na qual num deve ser escrito
         numInBase (string) - num escrito na base b
     """
+    
     def __init__(self, num, b):
         self.num = num
         self.b = b

@@ -11,7 +11,7 @@ from __future__ import unicode_literals
 
 from PIL import Image
 
-from trunk.src.cellularautomata.CellularAutomata import CellularAutomata
+from cellularautomata.CellularAutomata import CellularAutomata
 
 
 class AutomataPicture():
@@ -178,5 +178,13 @@ class AutomataPicture():
                 self.putPixel(newSite, line, column)
         return self.image    
                  
-    def save(self):
-        pass
+    def save(self,path,fileType):
+        """Salva a imagem criada em path, com a extensão fileType.
+        
+        Método que salva a imagem criada no caminho path, com o formato fileType. No nome do arquivo de imagem 
+        salvo consta o nome do autômato.
+        
+        path(string) - caminho, que deve incluir a pasta
+        fileType (string) - formato desejado para a imagem
+        """
+        self.image.save(path + str(self.automata.getName()) + fileType) 

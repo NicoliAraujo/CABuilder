@@ -12,11 +12,11 @@ if __name__ == '__main__':
             pic = AutoPicTA(altura, largura, regra, k(ou n de cores), 1o k)
     '''
     
-    pic = TotalisticCodePicture(512, 512, 600, 3, 1)
+    pic = TotalisticCodePicture(100, 100, 600, 3, 1)
     
     pic.setImage()
     print("Operacao terminada")
-    pic.save('../output/','.jpg')
+    pic.save('../output/','.png')
 
    
     

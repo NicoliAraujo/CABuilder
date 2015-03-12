@@ -9,16 +9,18 @@ Created on 16/10/2014
 
 from __future__ import unicode_literals
 
-from trunk.src.cellularautomata.AutomataPicture import AutomataPicture
-from trunk.src.cellularautomata.rulenumber.RuleNumber import RuleNumber
+from cellularautomata.AutomataPicture import AutomataPicture
+from cellularautomata.rulenumber.RuleNumber import RuleNumber
 
 
 class RuleNumberPicture(AutomataPicture):
    
-    """Classe responsável por criar a imagem de um automato celular  do tipo Elementar."""
+    """Subclasse de AutomataPicture responsável por criar a imagem de um automato celular  do tipo Elementar."""
     
     def __init__(self, height, width, rule):
         """Construtor da classe. Aqui, há a instância de um autômato celular do tipo Elementar.
+        
+        Estende AutomataPicture.__init(height, width, rule, k, firstK).
         
         Como é um autômato celular simples, o número de estados é sempre 2, e o primeiro pixel é sempre preto.
         
@@ -30,6 +32,8 @@ class RuleNumberPicture(AutomataPicture):
 
     def save(self,path,fileType): 
         """Salva a imagem no local path, com tipo filetype. 
+        
+        Sobrescreve AutomataPicture.save(path, fileType).
         
         Método que salva a imagem criada no caminho path, com o formato fileType. No nome do arquivo de imagem 
         salvo consta o nome do autômato.

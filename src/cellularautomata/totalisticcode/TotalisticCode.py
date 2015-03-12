@@ -9,7 +9,7 @@ Created on 24/10/2014
 
 from __future__ import unicode_literals
 
-from trunk.src.cellularautomata.CellularAutomata import CellularAutomata
+from cellularautomata.CellularAutomata import CellularAutomata
 
 
 class TotalisticCode(CellularAutomata):
@@ -21,6 +21,8 @@ class TotalisticCode(CellularAutomata):
           
     def getNext (self, b1, b2, b3):
         """Retorna dictRule[b1+b2+b3]
+        
+        Sobrescreve CellularAutomata.getNext(b1, b2, b3).
         
         Define o estado de uma célula a partir do estado de três vizinhas, armazenados em b1, b2 e b3. Retorna o valor
         no dictRule referente à soma dos três estados fornecidos.

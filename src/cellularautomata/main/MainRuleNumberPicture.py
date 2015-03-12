@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''
 Created on 20/10/2014
 
@@ -10,10 +11,10 @@ from trunk.src.cellularautomata.rulenumber.RuleNumberPicture import RuleNumberPi
 if __name__ == '__main__':
     
     
-    pic = RuleNumberPicture(50,50,30)
+    pic = RuleNumberPicture(400,400,30)
     pic.setImage()
+    pic.save('../output/','.png')
     print("Operacao terminada")
-    pic.save('../output/','.jpg')
 
    
     
