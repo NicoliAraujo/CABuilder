@@ -49,7 +49,7 @@ class ImgtoText():
     '''
                 
     def imgToTxt(self, name):
-        filename = './text/' +str(name)+ 'fomimg.txt'
+        filename = './txtfile/' +str(name)+ 'fomimg.txt'
         with open(filename, 'w') as self.file:
             self.file.write('')
             self.file.truncate()
@@ -62,9 +62,9 @@ class ImgtoText():
 class ParserCortaLinhas():
     def __init__(self, oldFileName):
         contLine = 0
-        self.newfile = open('./text/tratado/' + oldFileName + 'parser.txt', 'w')
+        self.newfile = open('./txtfile/tratado/' + oldFileName + 'parser.txt', 'w')
         self.newfile.truncate()
-        with open('./text/original/' + oldFileName + '.txt', 'r') as self.oldfile:
+        with open('./txtfile/original/' + oldFileName + '.txt', 'r') as self.oldfile:
             for line in self.oldfile:
                 
                 if (contLine >= 500):
@@ -91,8 +91,8 @@ class Parser3():
 class Parser2():
     def __init__(self, oldFileName, total, bitstreams):
         corte = 0
-        self.newfile = open('./text/' + oldFileName + 'parser2.txt', 'w')
-        with open('./text/' + oldFileName +'.txt', 'r') as self.oldfile:
+        self.newfile = open('./txtfile/' + oldFileName + 'parser2.txt', 'w')
+        with open('./txtfile/' + oldFileName +'.txt', 'r') as self.oldfile:
             for i in range(0, total):
                 self.newfile.write(self.oldfile[i])
                 if (i == corte):
@@ -103,16 +103,16 @@ class Parser2():
  
 class ParserNist():
     def __init__(self, oldFileName):
-        self.newfile = open('./text/tratado/' + str(oldFileName) + 'parser.txt', 'w')
+        self.newfile = open('./txtfile/tratado/versaoponto/' + str(oldFileName) + 'parser.txt', 'w')
         self.newfile.truncate()
-        with open('./text/original/' + oldFileName + '.txt', 'r') as self.oldfile:
+        with open('./txtfile/original/' + oldFileName + '.txt', 'r') as self.oldfile:
             tempStr = ''
             newStr = ''
             for oldLine in self.oldfile:
                 newLine = oldLine.replace('\n', "")
                 tempStr += newLine
             for oldBit in tempStr:
-                    newBit = (oldBit + '\n')
+                    newBit = (oldBit + '.')
                     newStr += newBit 
             self.newfile.write(newStr)
                 

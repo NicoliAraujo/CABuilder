@@ -9,7 +9,7 @@ Created on 04/01/2015
 
 from __future__ import unicode_literals
 
-from src.util.IntKBase import IntKBase
+from util.IntKBase import IntKBase
 
 
 class CellularAutomata():

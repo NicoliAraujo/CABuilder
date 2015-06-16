@@ -5,11 +5,12 @@ Created on 11/03/2015
 
 @author: Nicoli
 '''
-from src.cellularautomata.automatatext.ParserImgToText import ParserNist
-from src.cellularautomata.automatatext.AutomataText import AutomataText
-from src.cellularautomata.rulenumber.RuleNumber import RuleNumber
-#from src.cellularautomata.totalisticcode.TotalisticCodePicture import TotalisticCodePicture
+from cellularautomata.automatatext.AutomataText import AutomataText
+from cellularautomata.automatatext.ParserImgToText import ParserNist
+from cellularautomata.rulenumber.RuleNumber import RuleNumber
 
+
+#from src.cellularautomata.totalisticcode.TotalisticCodePicture import TotalisticCodePicture
 if __name__ == '__main__':
     
     elementar = [72, 136, 103, 91, 30, 73, 101, 105, 129, 137, 161, 183, 169, 214, 225, 45, 26, 57, 62, 89]

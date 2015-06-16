@@ -9,8 +9,8 @@ Created on 16/10/2014
 
 from __future__ import unicode_literals
 
-from src.cellularautomata.AutomataPicture import AutomataPicture
-from src.cellularautomata.totalisticcode.TotalisticCode import TotalisticCode
+from cellularautomata.AutomataPicture import AutomataPicture
+from cellularautomata.totalisticcode.TotalisticCode import TotalisticCode
 
 
 class TotalisticCodePicture(AutomataPicture):

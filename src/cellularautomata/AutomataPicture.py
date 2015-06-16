@@ -10,9 +10,7 @@ Created on 04/01/2015
 from __future__ import unicode_literals
 
 from PIL import Image
-
-from src.cellularautomata.CellularAutomata import CellularAutomata
-
+from cellularautomata.CellularAutomata import CellularAutomata
 
 
 class AutomataPicture():

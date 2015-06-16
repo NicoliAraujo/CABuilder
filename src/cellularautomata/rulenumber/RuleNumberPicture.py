@@ -9,8 +9,8 @@ Created on 16/10/2014
 
 from __future__ import unicode_literals
 
-from src.cellularautomata.AutomataPicture import AutomataPicture
-from src.cellularautomata.rulenumber.RuleNumber import RuleNumber
+from cellularautomata.AutomataPicture import AutomataPicture
+from cellularautomata.rulenumber.RuleNumber import RuleNumber
 
 
 class RuleNumberPicture(AutomataPicture):

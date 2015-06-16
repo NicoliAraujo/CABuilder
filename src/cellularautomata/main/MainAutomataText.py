@@ -6,6 +6,7 @@ Created on 06/05/2015
 '''
 from src.cellularautomata.automatatext.AutomataText import AutomataText
 
+
 if __name__ == '__main__':
     from trunk.src.cellularautomata.rulenumber.RuleNumber import RuleNumber
     from trunk.src.cellularautomata.automatatext.ParserImgToText import ParserNist

@@ -9,7 +9,7 @@ Created on 24/10/2014
 
 from __future__ import unicode_literals
 
-from src.cellularautomata.CellularAutomata import CellularAutomata
+from cellularautomata.CellularAutomata import CellularAutomata
 
 
 class TotalisticCode(CellularAutomata):

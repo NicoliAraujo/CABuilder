@@ -20,7 +20,7 @@ class AutomataText(object):
         self.cycles = cycles
         self.width = width
         self.firstk = firstk
-        self.file = open('./text/original/' + str(self.autocel.rule) + '.txt', 'w')
+        self.file = open('./txtfile/original/' + str(self.autocel.rule) + '.txt', 'w')
         #=======================================================================
         # self.file2 = open('./text/original/' + str(self.autocel.rule) + 'LIM.txt', 'w')
         #=======================================================================
@@ -78,12 +78,14 @@ class AutomataText(object):
         self.file.close()
                  
 
-if __name__ == '__main__':
-    from src.cellularautomata.rulenumber.RuleNumber import RuleNumber
-    from src.cellularautomata.automatatext.ParserImgToText import ParserNist
-    rule30 = RuleNumber(30)
-    rule30text = AutomataText(8, 1000000, rule30, 1)
-    rule30text.setFile()
-    ParserNist(str(rule30text.autocel.rule))
-    print("operação terminada")
+#===============================================================================
+# if __name__ == '__main__':
+#     from cellularautomata.rulenumber.RuleNumber import RuleNumber
+#     from cellularautomata.automatatext.ParserImgToText import ParserNist
+#     rule30 = RuleNumber(30)
+#     rule30text = AutomataText(8, 1000000, rule30, 1)
+#     rule30text.setFile()
+#     ParserNist(str(rule30text.autocel.rule))
+#     print("operação terminada")
+#===============================================================================
 
