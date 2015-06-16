@@ -18,7 +18,7 @@ if __name__ == '__main__':
     for i in elementar: 
     
         rule = RuleNumber(i)
-        ruletext = AutomataText(20, 50000, rule, 1)
+        ruletext = AutomataText(1000, 1000, rule, 1)
         ruletext.setFile()
         ParserNist(str(ruletext.autocel.rule))
 
