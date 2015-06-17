@@ -106,7 +106,7 @@ class ParserNist():
         self.newfile = open('./txtfile/tratado/versaoponto/' + str(oldFileName) + 'parser.txt', 'w')
         self.newfile.truncate()
         with open('./txtfile/original/' + oldFileName + '.txt', 'r') as self.oldfile:
-            tempStr = ''
+            tempStr = '' 
             newStr = ''
             for oldLine in self.oldfile:
                 newLine = oldLine.replace('\n', "")
@@ -119,6 +119,19 @@ class ParserNist():
             
         self.oldfile.close()
         self.newfile.close()
+        
+class ParserSieve():
+    def __init__(self, oldFileName):
+        self.newfile = open('./txtfile/tratado/continuo/' + str(oldFileName) + 'parser.txt', 'w')
+        self.newfile.truncate()
+        with open('./txtfile/original/' + oldFileName + '.txt', 'r') as self.oldfile: 
+            newStr = ''
+            for oldLine in self.oldfile:
+                newLine = oldLine.replace('\n', "")
+                newStr += newLine
+            self.newfile.write(newStr)
+        self.oldfile.close()
+        self.newfile.close()        
 '''        
 if __name__ == '__main__':
     from trunk.src.cellularautomata.rulenumber.RuleNumberPicture import RuleNumberPicture

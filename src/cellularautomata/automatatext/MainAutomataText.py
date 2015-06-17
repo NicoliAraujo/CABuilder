@@ -6,7 +6,7 @@ Created on 11/03/2015
 @author: Nicoli
 '''
 from cellularautomata.automatatext.AutomataText import AutomataText
-from cellularautomata.automatatext.ParserImgToText import ParserNist
+from cellularautomata.automatatext.ParserImgToText import ParserSieve
 from cellularautomata.rulenumber.RuleNumber import RuleNumber
 
 
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         rule = RuleNumber(i)
         ruletext = AutomataText(1000, 1000, rule, 1)
         ruletext.setFile()
-        ParserNist(str(ruletext.autocel.rule))
+        ParserSieve(str(ruletext.autocel.rule))
 
         print(str(i) + "Operação terminada" )
      
