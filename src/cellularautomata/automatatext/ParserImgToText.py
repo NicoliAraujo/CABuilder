@@ -130,6 +130,7 @@ class ParserSieve():
                 newLine = oldLine.replace('\n', "")
                 newStr += newLine
             self.newfile.write(newStr)
+            print(newStr)
         self.oldfile.close()
         self.newfile.close()        
 '''        
