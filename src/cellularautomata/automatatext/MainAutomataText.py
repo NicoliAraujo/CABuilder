@@ -22,7 +22,7 @@ if __name__ == '__main__':
 #         ruletext.setFile()
 #         ParserSieve(str(ruletext.autocel.rule))
 
-    e = RuleNumber(107)
+    e = RuleNumber(109)
     ruletext = AutomataText(1000, 1000, e, 1)
     ruletext.setFile()
     ParserSieve(str(ruletext.autocel.rule))
