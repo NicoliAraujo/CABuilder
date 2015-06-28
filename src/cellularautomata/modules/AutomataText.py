@@ -20,10 +20,7 @@ class AutomataText(object):
         self.cycles = cycles
         self.width = width
         self.firstk = firstk
-        self.file = open('./txtfile/original/' + str(self.autocel.rule) + '.txt', 'w')
-        #=======================================================================
-        # self.file2 = open('./text/original/' + str(self.autocel.rule) + 'LIM.txt', 'w')
-        #=======================================================================
+        self.file = open('../Output/txtoutput/original/' + str(self.autocel.rule) + '.txt', 'w')
         self.startlist()
         self.putFirstK(self.firstk)
         self.dictTxt = self.autocel.dictRule
@@ -55,14 +52,11 @@ class AutomataText(object):
         b1 = self.trygetbit(line, i-1)
         b2 = self.trygetbit(line, i)
         b3 = self.trygetbit(line, i+1)
-        b = self.autocel.getNext(b1, b2, b3)
 
         return  self.autocel.getNext(b1, b2, b3)
     
     def setFile(self):
-        #=======================================================================
-        # contaLinha =0
-        #=======================================================================
+
         for i in range(1, self.cycles):
             for j in range(0, self.width):
                 self.list[i] += ( str(self.getbits(self.list[i-1], j ) ) )
@@ -70,22 +64,6 @@ class AutomataText(object):
                 self.file.write(self.list[i])
             else:
                 self.file.write(self.list[i] + '\n')
-            #===================================================================
-            # if (contaLinha>=500):
-            #     self.file2.write(self.list[i]+'\n')
-            # contaLinha+=1
-            #===================================================================
+
         self.file.close()
                  
-
-#===============================================================================
-# if __name__ == '__main__':
-#     from cellularautomata.autocel.RuleNumber import RuleNumber
-#     from cellularautomata.ParserImgText import ParserNist
-#     rule30 = RuleNumber(30)
-#     rule30text = AutomataText(8, 1000000, rule30, 1)
-#     rule30text.setFile()
-#     ParserNist(str(rule30text.autocel.rule))
-#     print("operação terminada")
-#===============================================================================
-

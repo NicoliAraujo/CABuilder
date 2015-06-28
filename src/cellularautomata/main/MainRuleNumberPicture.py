@@ -5,13 +5,13 @@ Created on 20/10/2014
 @author: matsu
 '''
 
-from src.cellularautomata.rulenumber.RuleNumberPicture import RuleNumberPicture
+from cellularautomata.modules.AutomataImage import RuleNumberImage
 
 
 if __name__ == '__main__':
     
     
-    pic = RuleNumberPicture(400,400,30)
+    pic = RuleNumberImage(400,400,30)
     pic.setImage()
     pic.save('../output/','.png')
     print("Operacao terminada")

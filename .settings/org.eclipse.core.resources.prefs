@@ -1,8 +1,7 @@
 eclipse.preferences.version=1
-encoding//src/cellularautomata/AutomataImage.py=utf-8
-encoding//src/cellularautomata/AutomataText.py=utf-8
-encoding//src/cellularautomata/CellularAutomata.py=utf-8
-encoding//src/cellularautomata/ParserImgText.py=utf-8
-encoding//src/cellularautomata/main/MainAutomataText.py=utf-8
 encoding//src/cellularautomata/main/MainAutomataText1.py=utf-8
 encoding//src/cellularautomata/main/MainRuleNumberPicture.py=utf-8
+encoding//src/cellularautomata/modules/AutomataImage.py=utf-8
+encoding//src/cellularautomata/modules/AutomataText.py=utf-8
+encoding//src/cellularautomata/modules/CellularAutomata.py=utf-8
+encoding//src/cellularautomata/modules/ParserImgText.py=utf-8

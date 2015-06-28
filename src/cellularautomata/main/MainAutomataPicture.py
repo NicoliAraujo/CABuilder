@@ -3,8 +3,8 @@ Created on 13/02/2015
 
 @author: matsu
 '''
-from cellularautomata import AutomataImage
-from cellularautomata.CellularAutomata import CellularAutomata
+from cellularautomata.modules.AutomataImage import AutomataImage
+from cellularautomata.modules.CellularAutomata import CellularAutomata
 
 
 if __name__ == '__main__':

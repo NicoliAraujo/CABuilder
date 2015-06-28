@@ -10,7 +10,7 @@ Created on 04/01/2015
 from __future__ import unicode_literals
 
 from PIL import Image
-from cellularautomata.CellularAutomata import CellularAutomata, RuleNumber, TotalisticCode
+from CellularAutomata import CellularAutomata, RuleNumber, TotalisticCode
 
 class AutomataImage():
     """SuperClasse que tem por objetivo gerar uma imagem que represente um autômato celular.
@@ -44,8 +44,7 @@ class AutomataImage():
         
         self.image = Image.new("L", (self.width, self.height), "white")
        
-        self.automata = CellularAutomata(CellularAutomata)
-        self.dictColor = self.buildDictColor(self.automata.getK())
+        self.automata = CellularAutomata(rule, k)        self.dictColor = self.buildDictColor(self.automata.getK())
         self.putFirstPixel(self.firstK)
         
     def putFirstPixel(self, firstK):
@@ -187,9 +186,10 @@ class AutomataImage():
         self.image.save(path + str(self.automata.getName()) + fileType) 
         
     
-class RuleNumberPicture(AutomataImage):
     
-   
+    
+class RuleNumberImage(AutomataImage):
+    
     """Subclasse de AuAutomataPictureesponsável por criar a imagem de um automato celular  do tipo Elementar."""
     
     def __init__(self, height, width, rule):
@@ -217,8 +217,11 @@ class RuleNumberPicture(AutomataImage):
         fileType (string) - formato desejado para a imagem
         """
         self.image.save(path + '/RN/' + str(self.automata.getName()) + fileType)
+   
+   
+   
     
-class TotalisticCodePicture(AutomataImage):
+class TotalisticCodeImage(AutomataImage):
     """Subclasse de AuAutomataPictureesponsável por criar uma imagem que represente autômatos celulares Totalísticos."""
    
     def __init__(self, height, width, rule, k, firstK):

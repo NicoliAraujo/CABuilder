@@ -5,9 +5,9 @@ Created on 11/03/2015
 
 @author: Nicoli
 '''
-from cellularautomata import AutomataText.AutomataText
-from cellularautomata.ParserImgText import ParserSieve
-from cellularautomata.autocel.RuleNumber import RuleNumber
+from cellularautomata.modules.AutomataText import AutomataText
+from cellularautomata.modules.ParserImgText import ParserSieve
+from cellularautomata.modules.CellularAutomata import RuleNumber
 
 
 #from src.automataimg.TotalisticCodePicture import TotalisticCodePicture

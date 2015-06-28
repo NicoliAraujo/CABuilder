@@ -32,21 +32,7 @@ class ImgtoText():
             aux = temp + aux
 
         return dictTxt
-    '''truncate apaga tudo que tem no arquivo'''
 
-    '''
-    def imgToTxt(self, name):
-        filename = './text/' +str(name)+ '.txt'
-        with open(filename, 'w') as self.file:
-            self.file.write('')
-            self.file.truncate()
-            for line in range (0, self.width):
-                if (line>=500): 
-                    for column in range(0, self.height):
-                        site = self.image.getpixel((column,line))
-                        self.file.write(self.dictTxt[site])
-                    self.file.write('\n')
-    '''
                 
     def imgToTxt(self, name):
         filename = './txtfile/' +str(name)+ 'fomimg.txt'
@@ -108,17 +94,3 @@ class ParserSieve():
             print(newStr)
         self.oldfile.close()
         self.newfile.close()        
-'''        
-if __name__ == '__main__':
-    from trunk.src.automataimg.RuleNumberPicture import RuleNumberPicture
-     from trunk.src.automataimg.TotalisticCodePicture import TotalisticCodePicture
-     a = TotalisticCodePicture(100, 100, 600, 3, 2)
-    a = RuleNumberPicture(1000,1000, 30)
-    a.setImage()
-      
-    x= ImgtoText(a.image, a.automata.k, a.height, a.width)
-  
-    x.imgToTxt(a.automata.rule)
-     Parser(a.automata.getName())
-    print("operação terminada")
-'''
