@@ -94,3 +94,79 @@ class CellularAutomata():
     def getK(self):
         """Retorna k."""
         return self.k
+    
+    
+class RuleNumber(CellularAutomata):
+    """Subclasse de CeCellularAutomataDefine autômatos celulares do tipo elementar. 
+    
+    Em um RuleNumber, as células podem apresentar apenas dois estados, levando em consideração os estados 
+    das três células vizinhas presentes na iteração imediatamente anterior.
+    """
+
+    def __init__(self, rule):
+        """Construtor da classe RuleNumber. 
+        
+        Estende CellularAuCellularAutomatale, k).
+        
+        Aqui, são instanciados rule e k. É implementado o conceito de apenas dois estados, dando-se
+        a k fixamente o valor 2. Assim, não é necessário declarar k. 
+        """
+        CellularAutomata (rule, k = 2)
+
+    def getNext (self, b1, b2, b3):
+        """Retorna dictRule[b1b2b3], sendo b1b2b3 os três parâmetros concatenados.
+         
+        Sobrescreve CellularAutomata.CellularAutomatab3).
+        
+        Método que recebe o estado de tres vizinhas, concatena-os, transforma-os em inteiro para ser chave
+        retornar o valor ao qual esta associado no dictRule. 
+        
+        >>> rn = RuleNumber(45)
+        
+        >>> rn.dictRule
+        {0: 1, 1: 0, 2: 1, 3: 1, 4: 0, 5: 1, 6: 0, 7: 0}
+        
+        >>> rn.getNext(1, 0, 0)
+        0
+        
+        >>> rn.getNext(0, 1, 1)
+        1
+        
+        >>> rn.getNext(1, 1, 1)
+        0
+        """
+        temp = int( str(b1) + str(b2) + str(b3),2 )
+        
+        return self.dictRule.get(temp)
+    
+    
+class TotalisticCode(CellularAutomata):
+    """Classe que define os autômatos do tipo totalistico.
+    
+    Um TotalisticCode pode ter mais de dois estados possíveis para cada célula. Além disso, para definir 
+    o estado de uma célula, é feita a média entre as três células vizinhas da iteração imediatamente anterior.
+    """
+          
+    def getNext (self, b1, b2, b3):
+        """Retorna dictRule[b1+b2+b3]
+        
+        Sobrescreve CellularAutomCellularAutomatab2, b3).
+        
+        Define o estado de uma célula a partir do estado de três vizinhas, armazenados em b1, b2 e b3. Retorna o valor
+        no dictRule referente à soma dos três estados fornecidos.
+        
+        >>> tc = TotalisticCode(200, 3)
+        
+        >>> tc.dictRule
+        {0: 2, 1: 0, 2: 1, 3: 1, 4: 2, 5: 0, 6: 0, 7: 0}
+        
+        >>> tc.getNext(0, 2, 1)
+        1
+        >>> tc.getNext(0, 2, 2)
+        2
+        >>> tc.getNext(2, 2, 2)
+        0
+        """
+        tempInt = b1 + b2 + b3
+        return self.dictRule.get(tempInt)
+    

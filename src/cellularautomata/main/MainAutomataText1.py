@@ -5,12 +5,12 @@ Created on 11/03/2015
 
 @author: Nicoli
 '''
-from cellularautomata.automatatext.AutomataText import AutomataText
-from cellularautomata.automatatext.ParserImgToText import ParserSieve
-from cellularautomata.rulenumber.RuleNumber import RuleNumber
+from cellularautomata import AutomataText.AutomataText
+from cellularautomata.ParserImgText import ParserSieve
+from cellularautomata.autocel.RuleNumber import RuleNumber
 
 
-#from src.cellularautomata.totalisticcode.TotalisticCodePicture import TotalisticCodePicture
+#from src.automataimg.TotalisticCodePicture import TotalisticCodePicture
 if __name__ == '__main__':
     
 #     elementar = [72, 136, 103, 91, 30, 73, 101, 105, 129, 137, 161, 183, 169, 214, 225, 45, 26, 57, 62, 89]
@@ -35,7 +35,7 @@ if __name__ == '__main__':
 #    b = TotalisticCodePicture(3, 3, 600, 3, 1)
 #    b.setImage()
 #     
-#    x= AutomataText(b.image, b.automata.k, b.height, b.width)
+#    x= AuAutomataText.image, b.automata.k, b.height, b.width)
 # 
 #    x.imgToTxt(b.automata.rule)
 #==============================================================================

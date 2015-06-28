@@ -74,32 +74,7 @@ class ParserCortaLinhas():
         self.oldfile.close()
         self.newfile.close()
         
-'''
-class Parser3():
-    def __init__(self, oldFileName, nBits, nStrings):
-        self.newfile = open('./text/tratado/' + oldFileName + 'parser3.txt', 'w')
-        self.newfile.truncate()
-        with open('./text/tratado/' + oldFileName + '.txt', 'r') as self.oldfile:
-            while (i in range(0, nBits)):
-                
-                a = oldFile.place('\n', '')
-                self.newfile.write(a)
-        self.oldfile.close()
-        self.newfile.close()
-'''
-        
-class Parser2():
-    def __init__(self, oldFileName, total, bitstreams):
-        corte = 0
-        self.newfile = open('./txtfile/' + oldFileName + 'parser2.txt', 'w')
-        with open('./txtfile/' + oldFileName +'.txt', 'r') as self.oldfile:
-            for i in range(0, total):
-                self.newfile.write(self.oldfile[i])
-                if (i == corte):
-                    self.newfile.write('\n')
-                corte+= corte+total/bitstreams
-        self.oldfile.close()
-        self.newfile.close()        
+       
  
 class ParserNist():
     def __init__(self, oldFileName):
@@ -135,8 +110,8 @@ class ParserSieve():
         self.newfile.close()        
 '''        
 if __name__ == '__main__':
-    from trunk.src.cellularautomata.rulenumber.RuleNumberPicture import RuleNumberPicture
-     from trunk.src.cellularautomata.totalisticcode.TotalisticCodePicture import TotalisticCodePicture
+    from trunk.src.automataimg.RuleNumberPicture import RuleNumberPicture
+     from trunk.src.automataimg.TotalisticCodePicture import TotalisticCodePicture
      a = TotalisticCodePicture(100, 100, 600, 3, 2)
     a = RuleNumberPicture(1000,1000, 30)
     a.setImage()

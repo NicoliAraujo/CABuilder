@@ -4,7 +4,7 @@ Created on 20/10/2014
 @author: matsu
 '''
 
-from src.cellularautomata.rulenumber.RuleNumberPicture import RuleNumberPicture
+from cellularautomata.automataimg.RuleNumberPicture import RuleNumberPicture
 
 
 if __name__ == '__main__':
@@ -17,4 +17,4 @@ if __name__ == '__main__':
         
         print("Automato celular de regra %d foi gerado com sucesso" %i)
         
-        pic.save('../output/','.png')
+        pic.save('../imgoutput/','.png')

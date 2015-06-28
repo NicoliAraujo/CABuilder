@@ -7,9 +7,9 @@ Created on 23/03/2015
 '''
 
 class AutomataText(object):
-    '''
+    """
     classdocs
-    '''
+    """
 
 
     def __init__(self, width, cycles, autocel, firstk):
@@ -80,8 +80,8 @@ class AutomataText(object):
 
 #===============================================================================
 # if __name__ == '__main__':
-#     from cellularautomata.rulenumber.RuleNumber import RuleNumber
-#     from cellularautomata.automatatext.ParserImgToText import ParserNist
+#     from cellularautomata.autocel.RuleNumber import RuleNumber
+#     from cellularautomata.ParserImgText import ParserNist
 #     rule30 = RuleNumber(30)
 #     rule30text = AutomataText(8, 1000000, rule30, 1)
 #     rule30text.setFile()
