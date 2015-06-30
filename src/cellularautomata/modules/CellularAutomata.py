@@ -12,114 +12,153 @@ from __future__ import unicode_literals
 from util.IntKBase import IntKBase
 
 
-class CellularAutomata():
+class CellularAutomata(object):
     """SuperClasse que define autômatos celulares. 
     
     Um automato celular é um vetor multidimensional composto por células que detém um estado. O estado de 
     cada célula é determinado por uma regra numérica que considera os estados das celulas vizinhas. 
     """
 
-    def __init__(self, rule, k):
+    def __init__(self, rule, k, seed):
         """Construtor do autômato celular.
         
-        Aqui, são instanciados a regra (rule) e o número de estados(k). Apos isso, é criado o dictRule.
+        Aqui, são instanciados a regra (rule), o número de estados(k), e o primeiro estado da célula que se encontra 
+        exatamente no centro do vetor (seed).
+        Apos isso, é criado um dicionário que associa o estado da vizinhança de uma célula com o seu próprio
+        (dictRule).
         
         rule (int) - número da regra a que o autômato obedece.
         k (int) - número de estados que cada célula do autômato pode ter. Os estados são inteiros de 0 a k - 1.
-        dictRule ( dict (int -> int) ) -  dicionário que relaciona números de 0 a 7 aos bits de rule na base k.
+        seed (int) - estado inicial da célula central do autômato celular
+        dictRule ( dict (int -> int) ) -  dicionário que relaciona os estados de uma vizinhança (inteiros de 0 a 7) 
+                                          ao estado de uma célula (bits de rule na base k).
+                                          
+        type (str) - tipo do autômato celular. Inicialmente, é vazio, ou genérico.
         """
-        self.rule = rule
-        self.k = k
+        self.__rule = rule
+        self.__k = k
+        self.__seed = seed
+        self.__type = ''
+
+        self.__dictRule = self.setDictRule(self.rule, self.k)
+    
+
         
-        self.dictRule = {}
-        self.dictRule = self.buildDictRule(self.rule, self.k)
+    def setDictRule(self, rule, k):
+        """ Cria o dicionário de 8 chaves dictRule, que relaciona a vizinhança com o estado de uma célula.
         
-    def buildDictRule(self, rule, k):
-        """ Cria dictRule, que relaciona rule na base k com números de 0 a 8.
-        
-        Retorna um dicionário de 8 chaves, cada uma um inteiro de 0 a 7 armazenando um bit da string 
-        de 8 bits ruleInKBase. É nesta variável que rule escrita na base k é guardada.
+        Cada chave é um inteiro de 0 a 7 que representa uma soma dos estados de uma vizinhança. 
+        As chaves guardam inteiros que vão de 0 a k-1, que representam os possíveis estados da célula
+        a partir da vizinhança designada na chave. Cada estado é um bit da string de tamalho 8
+        ruleInKBase. É nesta variável que rule escrita na base k é guardada.
         
         retorna dictRule (int -> int)
         
-        >>> ca.buildDictRule(30, 2)
+        >>> ca.setDictRule(30, 2)
         {0: 0, 1: 1, 2: 1, 3: 1, 4: 1, 5: 0, 6: 0, 7: 0}
         
-        >>> ca.buildDictRule(45, 3)
+        >>> ca.setDictRule(45, 3)
         {0: 0, 1: 0, 2: 2, 3: 1, 4: 0, 5: 0, 6: 0, 7: 0}
         
-        >>> ca.buildDictRule(200, 3)
+        >>> ca.setDictRule(200, 3)
         {0: 2, 1: 0, 2: 1, 3: 1, 4: 2, 5: 0, 6: 0, 7: 0}
         """
         ruleInKBase = IntKBase(rule, k).numInBase
-        dictRule = {}
+        self.__dictRule = {}
         if (len(ruleInKBase) < 8):
             while (len(ruleInKBase) < 8):
                 ruleInKBase = "0" + ruleInKBase 
         i = 7
         for d in ruleInKBase:
-            dictRule[i] = int(d)
+            self.__dictRule[i] = int(d)
             i -=1
-        return dictRule
+        return self.__dictRule
+    
     
     def getNext(self, b1, b2, b3):     
         pass
     
-    def getDictRule(self):
-        """Retorna dictRule, o dicionário ."""
-        return self.dictRule
+
+    def __str__(self):
+        """Retorna o nome do autômato celular."""
+        return str(self.type) + str(self.rule)
     
-    def getName(self):
-        """Retorna rule como string."""
-        return str(self.rule)
-        
-    def getRule(self, chave):
+    
+    def getState(self, chave):
         """Retorna dictRule[chave].
         
-        chave (int) - um inteiro de 0 a 7, que armazena um dos k estados do autômato. 
+        chave (int) - um inteiro de 0 a 7, que armazena uma das oito possíveis combinações de estados
+        da vizinhança de uma célula. 
         
-        >>> ca.buildDictRule(200, 3)
+        >>> ca.setDictRule(200, 3)
         {0: 2, 1: 0, 2: 1, 3: 1, 4: 2, 5: 0, 6: 0, 7: 0}
          
-        >>> ca.getRule(0)
-        '0'
-        >>> ca.getRule(2)
-        '1'
-        >>> ca.getRule(3)
-        '1'
+        ca.getState(0)
+        2
+        ca.getState(6)
+        0
+        ca.getState(4)
+        2
         """
         
-        return self.dictRule.get(chave)
+        return self.dictRule[chave]
     
-    def getK(self):
+    @property
+    def rule(self):
+        return self.__rule
+    
+    @property
+    def k(self):
         """Retorna k."""
-        return self.k
+        return self.__k
+    
+    @property
+    def dictRule(self):
+        return self.__dictRule
+    
+    @property
+    def type(self):
+        return self.__type
+    
+    @type.setter
+    def type(self, type):
+        self.__type = type
+        
+    @property
+    def seed(self):
+        return self.__seed
     
     
 class RuleNumber(CellularAutomata):
-    """Subclasse de CeCellularAutomataDefine autômatos celulares do tipo elementar. 
+    """Subclasse de CellularAutomata: Define autômatos celulares do tipo elementar. 
     
-    Em um RuleNumber, as células podem apresentar apenas dois estados, levando em consideração os estados 
-    das três células vizinhas presentes na iteração imediatamente anterior.
+    Em um RuleNumber, as células podem apresentar apenas dois estados ao levar em consideração os estados 
+    das três células vizinhas da iteração imediatamente anterior.
     """
 
     def __init__(self, rule):
         """Construtor da classe RuleNumber. 
         
-        Estende CellularAuCellularAutomatale, k).
+        Estende o construtor de CellularAutomata.
         
-        Aqui, são instanciados rule e k. É implementado o conceito de apenas dois estados, dando-se
-        a k fixamente o valor 2. Assim, não é necessário declarar k. 
+        Aqui, são instanciados rule, k, type e seed. É implementado o conceito de apenas dois estados, dando-se
+        a k o valor 2 e a seed o valor 1 . Também é alterado o tipo do autômato celular, assumindo-se sua 
+        característica elementar.
         """
-        CellularAutomata (rule, k = 2)
 
+        super().__init__(rule, k = 2, seed = 1)
+        self.type = 'Elementar'
+        
+            
     def getNext (self, b1, b2, b3):
         """Retorna dictRule[b1b2b3], sendo b1b2b3 os três parâmetros concatenados.
          
-        Sobrescreve CellularAutomata.CellularAutomatab3).
+        Sobrescreve CellularAutomata.getNext(b1, b2, b3).
         
-        Método que recebe o estado de tres vizinhas, concatena-os, transforma-os em inteiro para ser chave
-        retornar o valor ao qual esta associado no dictRule. 
+        Método que recebe o estado de tres vizinhas, concatena-os para transformá-los em um binário, e 
+        os transforma no número inteiro correspondente, que é utilizado como chave do dictRule.
+        
+        Retornar o valor ao qual a chave esta associada no dictRule. 
         
         >>> rn = RuleNumber(45)
         
@@ -137,22 +176,36 @@ class RuleNumber(CellularAutomata):
         """
         temp = int( str(b1) + str(b2) + str(b3),2 )
         
-        return self.dictRule.get(temp)
+        return self.dictRule[temp]
+    
+
     
     
 class TotalisticCode(CellularAutomata):
-    """Classe que define os autômatos do tipo totalistico.
+    """Subclasse que define os autômatos do tipo totalistico.
     
     Um TotalisticCode pode ter mais de dois estados possíveis para cada célula. Além disso, para definir 
     o estado de uma célula, é feita a média entre as três células vizinhas da iteração imediatamente anterior.
+    
     """
+
+    def __init__(self, rule, k, seed):
+        '''
+        Construtor da subclasse TotalisticCode
+        
+        Estende o método construtor de CellularAutomata.
+        
+        Também é instanciado o tipo do autômato: Totalístico
+        '''
+        super().__init__(rule, k, seed)
+        self.type = 'Totalistico'
           
     def getNext (self, b1, b2, b3):
         """Retorna dictRule[b1+b2+b3]
         
-        Sobrescreve CellularAutomCellularAutomatab2, b3).
+        Sobrescreve CellularAutomata.getNext(b1, b2, b3).
         
-        Define o estado de uma célula a partir do estado de três vizinhas, armazenados em b1, b2 e b3. Retorna o valor
+        Define o estado de uma célula a partir do de três vizinhas, armazenados em b1, b2 e b3. Retorna o valor
         no dictRule referente à soma dos três estados fornecidos.
         
         >>> tc = TotalisticCode(200, 3)
@@ -167,6 +220,4 @@ class TotalisticCode(CellularAutomata):
         >>> tc.getNext(2, 2, 2)
         0
         """
-        tempInt = b1 + b2 + b3
-        return self.dictRule.get(tempInt)
-    
+        return self.dictRule[b1 + b2 + b3]

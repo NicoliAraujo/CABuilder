@@ -4,25 +4,23 @@ Created on 03/03/2015
 
 @author: matsu
 '''
-
+from __future__ import unicode_literals
 class ImgtoText():
     '''
     classdocs
     '''
 
 
-    def __init__(self, image, k, height, width):
+    def __init__(self, caImage):
         '''
         Constructor
         '''
-        self.height = height
-        self.width = width
-        self.image = image
-        self.k = k
+        self.caImage = caImage
 
         self.dictTxt = self.buildDict(self.k)
      
     def buildDict (self, k):
+        '''Constroi o dictColors de trás pra frente'''
         dictTxt = {}
         temp = 255/(k - 1)
         aux = 0
@@ -35,7 +33,7 @@ class ImgtoText():
 
                 
     def imgToTxt(self, name):
-        filename = './txtfile/' +str(name)+ 'fomimg.txt'
+        filename = '..Output/txtoutput/' + str(name)+ 'fromImg.txt'
         with open(filename, 'w') as self.file:
             self.file.write('')
             self.file.truncate()

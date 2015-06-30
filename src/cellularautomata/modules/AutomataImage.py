@@ -10,20 +10,23 @@ Created on 04/01/2015
 from __future__ import unicode_literals
 
 from PIL import Image
-from CellularAutomata import CellularAutomata, RuleNumber, TotalisticCode
 
-class AutomataImage():
-    """SuperClasse que tem por objetivo gerar uma imagem que represente um autômato celular.
 
-    Aqui, os estados são representados por cores que vão de branco a preto. Cada estado é uma cor.
-    As linhas da imagem constituem unidades de tempo.
+
+class AutomataImage(object):
+    """Classe que tem por objetivo gerar uma imagem que represente um autômato celular.
+
+    Aqui, os estados são representados por cores que vão do branco ao preto. Cada estado é uma cor.
+    Cada coluna representa uma célula, que muda de estado em cada linha. Assim, as linhas representam
+    um único vetor unidimensional, que tem seu estado mudado conforme o tempo passa.
     """
 
-    def __init__(self, height, width, rule, k, firstK):
-        """ Instancia height, width, rule, k, firstk: int; dictRule, image e automata.
+    def __init__(self, side, ca, filetype):
+        """Construtor da classe AutomataImage 
         
-        Construtor da classe. Recebe a altura, largura, numero de cores, regra e cor da 
-        primeira celula do automato, cria uma imagem em tons de cinza, de tamanho (height x width) 
+        Instancia o lado da imagem a ser gerada(side) e o autômato celular a que ela pertence (ca). 
+        A partir 
+        Cria uma imagem em tons de cinza, de tamanho (height x width) 
         de pixels brancos. Constroi o dicionario de cores e põe o primeiro pixel na imagem.
         
         height (int) - Altura da imagem, em pixels. Representa a quantidade de iterações desejadas para o autômato 
@@ -38,22 +41,28 @@ class AutomataImage():
         
         image (Image) - Imagem que representa o autômato celular. Tem dimensões (height x width), e pixels em tons de cinza. 
         """
-        self.height = height
-        self.width = width
-        self.firstK = firstK
-        
-        self.image = Image.new("L", (self.width, self.height), "white")
+        self.side = side
+
+        self.__image = Image.new("L", (self.side, self.side), "white")
        
-        self.automata = CellularAutomata(rule, k)        self.dictColor = self.buildDictColor(self.automata.getK())
-        self.putFirstPixel(self.firstK)
+        self.__ca = ca
+        self.__dictColor = self.setDictColor(self.ca.k)
         
-    def putFirstPixel(self, firstK):
-        """Método que põe o primeiro pixel na imagem. 
-        firstK(int) - número do estado desejado, ou seja, chave da cor desejada no dictColor. 
-        """
-        self.image.putpixel( (int(self.height/2), 0) , self.dictColor[firstK])
+        self.setImage(self.side, self.ca.seed)
+        self.save(filetype)
+
     
-    def SearchSite(self, color):
+    def setFirstPixel(self, seed):
+        self.firstPixel = self.dictColor[seed]
+        
+        
+    def putFirstPixel(self):
+        """Método que põe o primeiro pixel na imagem. 
+        firstPixel(int) - número do estado desejado, ou seja, chave da cor desejada no dictColor. 
+        """
+        self.image.putpixel( (int(self.side/2), 0) , self.firstPixel)
+    
+    def searchSite(self, color):
         """Retorna o estado (k) referente a cor informada no dictColor
         
         color (int) - uma cor de 0 a 255
@@ -72,7 +81,7 @@ class AutomataImage():
             if(self.dictColor[i] == color): 
                 return i
             
-    def buildDictColor(self, k):
+    def setDictColor(self, k):
         """Retorna um dicionario de k cores, que relaciona cada cor a um valor que varia de 0 a k-1
         
         k(int) - número de estados do autômato. 
@@ -128,7 +137,7 @@ class AutomataImage():
         """
         try:
             pixel = self.image.getpixel((x, y))
-            chave = self.SearchSite(pixel)
+            chave = self.searchSite(pixel)
             return chave
         except:
             return 0
@@ -159,22 +168,27 @@ class AutomataImage():
         b2 = self.tryGetSite(x, y-1)
         b3 = self.tryGetSite(x+1, y-1)
 
-        newSite = int (self.automata.getNext(b1,b2,b3) )
+        newSite = int (self.ca.getNext(b1,b2,b3) )
         return newSite
     
-    def setImage(self):
+
+    
+    def setImage(self, side, seed):
         """Gera a imagem que representa o autômato celular.
         
         Edita a imagem criada na iniciação de acordo com o autômato. Começando em t = 2 (ou na segunda linha),
         são atualizados os estados de todas as células do autômato. 
         """
-        for line in range (1, self.width):
-            for column in range (0, self.height):
+        self.setFirstPixel(seed)
+        self.putFirstPixel()
+        
+        for line in range (1, side):
+            for column in range (0, side):
                 newSite = self.getSite(column, line)     
                 self.putPixel(newSite, line, column)
-        return self.image    
-                 
-    def save(self,path,fileType):
+            
+         
+    def save(self,fileType):
         """Salva a imagem criada em path, com a extensão fileType.
         
         Método que salva a imagem criada no caminho path, com o formato fileType. No nome do arquivo de imagem 
@@ -183,68 +197,19 @@ class AutomataImage():
         path(string) - caminho, que deve incluir a pasta
         fileType (string) - formato desejado para a imagem
         """
-        self.image.save(path + str(self.automata.getName()) + fileType) 
+        self.image.save('../Output/imgoutput/' + str(self.ca.type) + '/' + str(self.ca.rule) + str(fileType)) 
         
     
+    @property
+    def ca(self):
+        return self.__ca
     
     
-class RuleNumberImage(AutomataImage):
-    
-    """Subclasse de AuAutomataPictureesponsável por criar a imagem de um automato celular  do tipo Elementar."""
-    
-    def __init__(self, height, width, rule):
-        """Construtor da classe. Aqui, há a instância de um autômato celular do tipo Elementar.
-        
-        Estende AutomaAutomataPicturet(height, width, rule, k, firstK).
-        
-        Como é um autômato celular simples, o número de estados é sempre 2, e o primeiro pixel é sempre preto.
-        
-        heihgt, width, rule: int
-        """
-        AutomataImage(height, width, rule, k = 2, firstK = 1)
-        self.automata = RuleNumber(rule)
-        
+    @property
+    def dictColor(self):
+        return self.__dictColor
 
-    def save(self,path,fileType): 
-        """Salva a imagem no local path, com tipo filetype. 
-        
-        Sobrescreve AutomataPicAutomataPicture fileType).
-        
-        Método que salva a imagem criada no caminho path, com o formato fileType. No nome do arquivo de imagem 
-        salvo consta o nome do autômato.
-        
-        path(string) - caminho, que deve incluir a pasta
-        fileType (string) - formato desejado para a imagem
-        """
-        self.image.save(path + '/RN/' + str(self.automata.getName()) + fileType)
-   
-   
-   
+    @property
+    def image(self):
+        return self.__image
     
-class TotalisticCodeImage(AutomataImage):
-    """Subclasse de AuAutomataPictureesponsável por criar uma imagem que represente autômatos celulares Totalísticos."""
-   
-    def __init__(self, height, width, rule, k, firstK):
-        """Construtor da classe. Aqui, há a instância de um autômato celular do tipo Totalístico.
-        
-        Estende AutomataPAutomataPictureeight, width, rule, k, firstK)
-        
-        height, width, rule, k, firstk: int
-        """
-        AutomataImage(height, width, rule, k, firstK)
-        self.automata = TotalisticCode(rule, k)
-
-    
-    def save(self,path,fileType): 
-        """Salva a imagem no local path, com tipo filetype. 
-        
-        Sobrescreve AutomataPAutomataPictureh, fileType).
-        
-        O automato é salvo com o nome, a base em que é gerado e a cor do seu primeiro pixel.
-        
-        path(string) - caminho, que deve incluir a pasta
-        fileType (string) - formato desejado para a imagem
-        """
-        self.image.save(path + '/TA/' + str(self.automata.getName()) +"k" + str(self.automata.getK()) + 'fp' + str(self.firstK) + fileType)
-        
-
