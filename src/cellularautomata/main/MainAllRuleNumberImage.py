@@ -3,6 +3,7 @@ Created on 20/10/2014
 
 @author: matsu
 '''
+from __future__ import unicode_literals
 
 from cellularautomata.modules.AutomataImage import AutomataImage
 from cellularautomata.modules.CellularAutomata import RuleNumber

@@ -5,6 +5,8 @@ Created on 03/03/2015
 @author: matsu
 '''
 from __future__ import unicode_literals
+
+
 class ImgtoText():
     '''
     classdocs

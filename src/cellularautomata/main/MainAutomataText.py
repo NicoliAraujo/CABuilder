@@ -24,18 +24,20 @@ if __name__ == '__main__':
 #         ruletext.setFile()
 #         ParserSieve(str(ruletext.autocel.rule))
  
+    rn = RuleNumber(45)
+    rntext = AutomataText(5, 10, rn, '')
+
+
+
     #===========================================================================
-    # e = RuleNumber(109)
-    # ruletext = AutomataText(1000, 1000, e, 1)
     # ruletext.setFile()
     # ParserSieve(str(ruletext.autocel.rule))
+    #  
     #===========================================================================
-     
      
 
     #===========================================================================
     # print(str(e) + " :Operação terminada" )
     #===========================================================================
     tc = TotalisticCode(1074, 3, 1)
-    b = AutomataText(100, 100, tc)
-    b.setFile()
+    tctext = AutomataText(10, 10, tc, '')
