@@ -29,6 +29,7 @@ class AutomataText(object):
         - ca (CellularAutomata) - Autômato celular cuja regra será utilizada para alterar os estados de cada célula.
         - name (Str) - O arquivo é salvo na pasta /original/, subpasta do seu tipo, com o nome igual a sua regra. Caso
                        deseje-se acrescentar outra informação, deve-se declará-la como uma string na variável nome. 
+        
         A partir desses parâmetros, o construtor instancia:
         
         - file (File) - arquivo de texto (.txt) composto de uma matriz de dimensões size x it de bits. Cada bit tem
@@ -42,8 +43,7 @@ class AutomataText(object):
         self.it = it
         self.size = size
         
-        self.__file = open('../Output/txtoutput/original/' + self.ca.type + '/' + str(self.ca.rule) + name + '.txt', 'w')
-        self.setFile(self.ca.seed)
+        self.setFile(self.ca.seed, name)
     
     
     def __startArray(self):
@@ -77,9 +77,9 @@ class AutomataText(object):
         
         Retorna um inteiro de 0 a k-1 que representa o estado da célula.
         
-        >>> rn = RuleNumber(45)
-        >>> rntext = AutomataText(5, 10, e, '')
-        >>> rntext.array
+        >>> ec = ElementaryCode(45)
+        >>> ectext = AutomataText(5, 10, e, '')
+        >>> ectext.array
         [[ 0.  0.  1.  0.  0.]
          [ 1.  0.  1.  0.  1.]
          [ 0.  1.  1.  1.  1.]
@@ -90,12 +90,12 @@ class AutomataText(object):
          [ 1.  0.  1.  1.  0.]
          [ 1.  1.  1.  0.  0.]
          [ 1.  0.  0.  0.  1.]]
-        >>> rntext.tryGetBit(4, 6)
+        >>> ectext.tryGetBit(4, 6)
         0
         
-        >>> rn = RuleNumber(63)
-        >>> rntext = AutomataText(5, 10, e, '')
-        >>> rnext.array
+        >>> ec = ElementaryCode(63)
+        >>> ectext = AutomataText(5, 10, e, '')
+        >>> ecext.array
         [[ 0.  0.  1.  0.  0.]
          [ 1.  1.  1.  1.  1.]
          [ 0.  0.  0.  0.  0.]
@@ -106,7 +106,7 @@ class AutomataText(object):
          [ 1.  1.  1.  1.  1.]
          [ 0.  0.  0.  0.  0.]
          [ 1.  1.  1.  1.  1.]]
-        >>> rntext.tryGetBit(4, 6)
+        >>> ectext.tryGetBit(4, 6)
         0
         
         >>> tc = TotalisticCode(1074, 3, 1)
@@ -139,9 +139,9 @@ class AutomataText(object):
         
         Retorna o estado da célula no tempo atual. 
         
-        >>> rn = RuleNumber(45)
-        >>> rntext = AutomataText(5, 10, e, '')
-        >>> rntext.array
+        >>> ec = ElementaryCode(45)
+        >>> ectext = AutomataText(5, 10, e, '')
+        >>> ectext.array
         [[ 0.  0.  1.  0.  0.]
          [ 1.  0.  1.  0.  1.]
          [ 0.  1.  1.  1.  1.]
@@ -152,12 +152,12 @@ class AutomataText(object):
          [ 1.  0.  1.  1.  0.]
          [ 1.  1.  1.  0.  0.]
          [ 1.  0.  0.  0.  1.]]
-        >>> rntext.getBits(5, 4)
+        >>> ectext.getBits(5, 4)
         0
         
-        >>> rn = RuleNumber(63)
-        >>> rntext = AutomataText(5, 10, e, '')
-        >>> rnext.array
+        >>> ec = ElementaryCode(63)
+        >>> ectext = AutomataText(5, 10, e, '')
+        >>> ecext.array
         [[ 0.  0.  1.  0.  0.]
          [ 1.  1.  1.  1.  1.]
          [ 0.  0.  0.  0.  0.]
@@ -168,7 +168,7 @@ class AutomataText(object):
          [ 1.  1.  1.  1.  1.]
          [ 0.  0.  0.  0.  0.]
          [ 1.  1.  1.  1.  1.]]
-        >>> rntext.getBits(5, 4)
+        >>> ectext.getBits(5, 4)
         1
         
         >>> tc = TotalisticCode(1074, 3, 1)
@@ -193,7 +193,7 @@ class AutomataText(object):
         
         return  self.ca.getNext(b1, b2, b3)
     
-    def setFile(self, firstBit):
+    def setFile(self, firstBit, name):
         '''Salva os estados do autômato no arquivo de texto.
         
         Edita o arquvio de texto criado na iniciação de acordo com o autômato. Em t = 0 (primeira linha) põe o primeiro 
@@ -202,19 +202,21 @@ class AutomataText(object):
         
         firstBit (int) - estado da célula central do vetor em t = 0. Inteiro de 0 a k-1.
         '''
+        filename = str(self.ca.rule) + name + '.txt'
         self.firstBit = firstBit
         self.__startArray()
-        self.__putFirstLine()
+        with open ('../Output/txtoutput/original/' + self.ca.type + '/' + filename , 'w') as self.file:
         
-        for i in range(1, self.it):
-            for j in range(0, self.size):
-                self.__array[i][j] = self.getBits(i,j)
-                self.file.write(str(int(self.__array[i][j])))
+            self.__putFirstLine()
 
-            if (i!=self.it-1):
-                self.file.write('\n')
+            for i in range(1, self.it):
+                for j in range(0, self.size):
+                    self.__array[i][j] = self.getBits(i,j)
+                    self.file.write(str(int(self.__array[i][j])))
+    
+                if (i!=self.it-1):
+                    self.file.write('\n')
 
-        self.file.close()
         
     @property
     def ca(self):

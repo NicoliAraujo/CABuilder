@@ -4,7 +4,7 @@ Created on Jun 28, 2015
 @author: Nicoli
 '''
 from __future__ import unicode_literals
-from cellularautomata.modules.CellularAutomata import RuleNumber, TotalisticCode
+from cellularautomata.modules.CellularAutomata import ElementaryCode, TotalisticCode
 from cellularautomata.modules.AutomataImage import AutomataImage
 
 if __name__ == '__main__':
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     type = input('Options: Elementary or Totalistic\n')
     if (type == 'Elementary'):
         rule = int(input('Rule: '))
-        ca = RuleNumber(rule)
+        ca = ElementaryCode(rule)
     elif (type == 'Totalistic'):
         rule = int(input('Rule: '))
         k = int(input('Quantity of States: '))

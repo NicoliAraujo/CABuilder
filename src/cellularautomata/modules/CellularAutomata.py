@@ -5,6 +5,12 @@ Created on 04/01/2015
 
 @author: Nicoli Araújo
 @author: Elloá B. Guedes
+
+
+Este módulo contém as classes que definem um Autômato Celular.
+    Superclasse CellularAutomata - Define métodos e atributos gerais de um CA
+    Classe ElementaryCode - Instancia métodos e atributos específicos para autômatos celulares com k = 2
+    Classe TotalisticCode - Instancia métodos e atributos para autômatos celulares com k > 2 
 """
 
 from __future__ import unicode_literals
@@ -129,15 +135,15 @@ class CellularAutomata(object):
         return self.__seed
     
     
-class RuleNumber(CellularAutomata):
+class ElementaryCode(CellularAutomata):
     """Subclasse de CellularAutomata: Define autômatos celulares do tipo elementar. 
     
-    Em um RuleNumber, as células podem apresentar apenas dois estados ao levar em consideração os estados 
+    Em um ElementaryCode, as células podem apresentar apenas dois estados ao levar em consideração os estados 
     das três células vizinhas da iteração imediatamente anterior.
     """
 
     def __init__(self, rule):
-        """Construtor da classe RuleNumber. 
+        """Construtor da classe ElementaryCode. 
         
         Estende o construtor de CellularAutomata.
         
@@ -147,7 +153,7 @@ class RuleNumber(CellularAutomata):
         """
 
         super().__init__(rule, k = 2, seed = 1)
-        self.type = 'Elementar'
+        self.type = 'Elementary'
         
             
     def getNext (self, b1, b2, b3):
@@ -160,18 +166,18 @@ class RuleNumber(CellularAutomata):
         
         Retornar o valor ao qual a chave esta associada no dictRule. 
         
-        >>> rn = RuleNumber(45)
+        >>> ec = ElementaryCode(45)
         
-        >>> rn.dictRule
+        >>> ec.dictRule
         {0: 1, 1: 0, 2: 1, 3: 1, 4: 0, 5: 1, 6: 0, 7: 0}
         
-        >>> rn.getNext(1, 0, 0)
+        >>> ec.getNext(1, 0, 0)
         0
         
-        >>> rn.getNext(0, 1, 1)
+        >>> ec.getNext(0, 1, 1)
         1
         
-        >>> rn.getNext(1, 1, 1)
+        >>> ec.getNext(1, 1, 1)
         0
         """
         temp = int( str(b1) + str(b2) + str(b3),2 )
@@ -198,7 +204,7 @@ class TotalisticCode(CellularAutomata):
         Também é instanciado o tipo do autômato: Totalístico
         '''
         super().__init__(rule, k, seed)
-        self.type = 'Totalistico'
+        self.type = 'Totalistic'
           
     def getNext (self, b1, b2, b3):
         """Retorna dictRule[b1+b2+b3]

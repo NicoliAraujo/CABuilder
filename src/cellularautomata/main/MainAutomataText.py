@@ -9,7 +9,7 @@ Created on 11/03/2015
 from __future__ import unicode_literals
 from cellularautomata.modules.AutomataText import AutomataText
 from cellularautomata.modules.ParserImgText import ParserSieve
-from cellularautomata.modules.CellularAutomata import RuleNumber, TotalisticCode
+from cellularautomata.modules.CellularAutomata import ElementaryCode, TotalisticCode
 from cellularautomata.modules.AutomataImage import AutomataImage
 
 
@@ -24,8 +24,8 @@ if __name__ == '__main__':
 #         ruletext.setFile()
 #         ParserSieve(str(ruletext.autocel.rule))
  
-    rn = RuleNumber(45)
-    rntext = AutomataText(5, 10, rn, '')
+    ec = ElementaryCode(45)
+    ectext = AutomataText(5, 10, ec, '')
 
 
 

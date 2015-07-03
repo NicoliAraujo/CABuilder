@@ -29,26 +29,28 @@ class AutomataImage(object):
         - side (int) - Altura da imagem, em pixels: representa a quantidade de iterações desejadas para o autômato 
         celular, ou seja, é a passagem de tempo; Largura da imagem, em pixels.
         - ca (CellularAutomata) - Autômato celular cuja regra e semente serão utilizadas para colorir a imagem.
+        - name (Str) - A imagem é salva na pasta /imgoutput/, subpasta do seu tipo, com o nome igual a sua regra. Caso
+                       deseje-se acrescentar outra informação, deve-se declará-la como uma string na variável nome. 
         
-        A partir desses dois parâmetros, o construtor instancia:
+        A partir desses parâmetros, o construtor instancia:
         
         - image (Image) - cria uma imagem em tons de cinza, de tamanho (side x side) de pixels brancos. 
         - dictColor: dict (int -> int) - Dicionário que alia cada um dos k estados do autômato a uma cor de 0 a 255. 
                      As chaves são números de 0 a k-1, e os valores guardados por elas são as cores que representam 
                      cada estado.
         
-        Então, o método setImage edita a imagem conforme a evolução do ca, e o método save a salva no formato informado, 
+        Então, o método setImage() edita a imagem conforme a evolução do ca, e o método save() a salva no formato informado, 
         na pasta padrão.
         """
         self.side = side
 
         self.__image = Image.new("L", (self.side, self.side), "white")
-       
+
         self.__ca = ca
-        self.__dictColor = self.setDictColor(self.ca.k)
+        self.__name = str(name) + str(self.ca.rule)  + str(filetype)        self.__dictColor = self.setDictColor(self.ca.k)
         
         self.setImage(self.ca.seed)
-        self.save(filetype)
+        self.save()
 
     
     def setFirstPixel(self, seed):
@@ -198,16 +200,16 @@ class AutomataImage(object):
                 self.putPixel(newState, line, column)
             
          
-    def save(self,fileType, name):
-        """Salva a imagem criada em path, com a extensão fileType.
+    def save(self):
+        """Salva a imagem criada em, com a extensão fileType.
         
         Método que salva a imagem criada no caminho path, com o formato fileType. No nome do arquivo de imagem 
         salvo consta o nome do autômato.
         
         fileType (string) - formato desejado para a imagem: .png; .jpg; .jpeg, 
         """
-        self.image.save('../Output/imgoutput/' + str(self.ca.type) + '/' + str(name) + str(self.ca.rule) + str(fileType)) 
-        
+        self.image.save('../Output/imgoutput/' + str(self.ca.type) + '/' + self.name) 
+        self.image.close()
     
     @property
     def ca(self):
@@ -222,3 +224,6 @@ class AutomataImage(object):
     def image(self):
         return self.__image
     
+    @property
+    def name(self):
+        return self.__name
