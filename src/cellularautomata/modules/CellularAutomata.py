@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Created on 04/01/2015
+Criado em 04/01/2015
 
 @author: Nicoli Araújo
 @author: Elloá B. Guedes

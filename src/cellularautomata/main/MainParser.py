@@ -3,9 +3,11 @@ Created on Jul 2, 2015
 
 @author: Nicoli
 '''
-from cellularautomata.modules.ParserImgText import ImgtoText, Parser
 from cellularautomata.modules.CellularAutomata import TotalisticCode
+from cellularautomata.modules.ParserImgText import ImgtoText, Parser
+
 from cellularautomata.modules.CAOutput import AutomataImage
+
 
 if __name__ == '__main__':
     tc = TotalisticCode (330, 3, 2)

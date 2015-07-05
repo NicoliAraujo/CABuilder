@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
 
 """
-Created on 04/01/2015
+Criado on 04/01/2015
 
 @author: Nicoli Araújo
 @author: Elloá B. Guedes
+
+Módulo que abriga as classes que salvam os estados de um autômato celular em uma imagem de extensão .png composta de pixels com tons que vão do preto ao branco ou um arquivo de texto composto de números inteiros.
+    - AutomataImage gera imagem.
+    - AutomataText gera um arquivo texto.
 """
 
 from __future__ import unicode_literals
 
 from PIL import Image
-    
 from numpy import zeros
 
 
@@ -25,14 +28,14 @@ class AutomataImage(object):
         
         Instancia o lado da imagem a ser gerada(side) e o autômato celular a que ela pertence (ca):
         
-        - side (int) - Altura da imagem, em pixels: representa a quantidade de iterações desejadas para o autômato celular, ou seja, é a passagem de tempo; Largura da imagem, em pixels.
-        - ca (CellularAutomata) - Autômato celular cuja regra e semente serão utilizadas para colorir a imagem.
-        - name (Str) - A imagem é salva na pasta /imgoutput/, subpasta do seu tipo, com o nome igual a sua regra. Caso deseje-se acrescentar outra informação, deve-se declará-la como uma string na variável info. 
+        - side (int) : Altura da imagem, em pixels: representa a quantidade de iterações desejadas para o autômato celular, ou seja, é a passagem de tempo; Largura da imagem, em pixels.
+        - ca (CellularAutomata) : Autômato celular cuja regra e semente serão utilizadas para colorir a imagem.
+        - info (str) : A imagem é salva na pasta /imgoutput/, subpasta do seu tipo, com o nome igual a sua regra. Caso deseje-se acrescentar outra informação, deve-se declará-la como uma string na variável info. 
         
         A partir desses parâmetros, o construtor instancia:
         
-        - image (Image) - cria uma imagem em tons de cinza, de tamanho (side x side) de pixels brancos. 
-        - dictColor: dict (int -> int) - Dicionário que alia cada um dos k estados do autômato a uma cor de 0 a 255. As chaves são números de 0 a k-1, e os valores guardados por elas são as cores que representam cada estado.
+        - image (Image) : cria uma imagem em tons de cinza, de tamanho (side x side) de pixels brancos. 
+        - dictColor: dict (int -> int) : Dicionário que alia cada um dos k estados do autômato a uma cor de 0 a 255. As chaves são números de 0 a k-1, e os valores guardados por elas são as cores que representam cada estado.
         
         Então, o método setImage() edita a imagem conforme a evolução do ca, e o método save() a salva no formato .png, na pasta padrão (/Output/imgoutput/).
         """
@@ -50,7 +53,7 @@ class AutomataImage(object):
     def setFirstPixel(self, seed):
         '''Define a cor do primeiro pixel a ser colocado na imagem a partir do estado inical do ca.
         
-        seed (int) um número de 0 a k-1 que representa o estado inicial do autômato celular. 
+        - seed (int): Um número de 0 a k-1 que representa o estado inicial do autômato celular. 
         '''
         self.firstPixel = self.dictColor[seed]
         
@@ -58,7 +61,7 @@ class AutomataImage(object):
     def putFirstPixel(self, seed):
         """Método que põe o primeiro pixel na imagem. 
         
-        firstPixel(int) - número do estado desejado, ou seja, chave da cor desejada no dictColor. 
+        - firstPixel(int) : Número do estado desejado, ou seja, chave da cor desejada no dictColor. 
         """
         
         self.setFirstPixel(seed)
@@ -67,7 +70,8 @@ class AutomataImage(object):
     def searchSite(self, color):
         """Retorna o estado (state) que guarda a cor desejada no dictColor
         
-        color (int) - uma cor de 0 a 255
+        - color (int) : Uma cor de 0 a 255
+        
         Retorna state (int) se dictColor[state] = color
         
         >>> AutomataImage.dictColor
@@ -86,7 +90,7 @@ class AutomataImage(object):
     def setDictColor(self, k):
         """Retorna um dicionario de k cores, que relaciona cada cor a um valor que varia de 0 a k-1
         
-        k(int) - número de estados do autômato. 
+        - k (int) : Número de estados do autômato. 
         
         >>> AutomataImage.setDictColor(2)
         {0: 255, 1: 0}
@@ -112,8 +116,7 @@ class AutomataImage(object):
     def putPixel(self, state, x, y): 
         """ Põe nas coordenadas informadas a cor correspondente a state no dictColor.
         
-        Dado um estado de 0 a k-1, transforma-o na cor correspondenten no dictColor e coloca na imagem
-        na posição (y,x)
+        Dado um estado de 0 a k-1, transforma-o na cor correspondenten no dictColor e coloca na imagem na posição (y,x)
         """
         nSite = self.dictColor[int(state)] 
         self.image.putpixel( (y, x) , nSite)
@@ -179,7 +182,7 @@ class AutomataImage(object):
         
         Edita a imagem criada na iniciação de acordo com o autômato. Em t = 0 (primeira linha) põe o primeiro pixel da cor correspondente à semente dada. Começando em t = 1 (ou na segunda linha), são atualizados os estados de todas as células do autômato. 
         
-        seed (int) - estado da célula central do vetor em t = 0. Inteiro de 0 a k-1. 
+        - seed (int) : estado da célula central do vetor em t = 0. Inteiro de 0 a k-1. 
         """
         self.putFirstPixel(seed)
         
@@ -228,15 +231,15 @@ class AutomataText(object):
         
         Instancia o tamanho do vetor a ser gerado (size), a quantidade de iterações que ocorrerão (it) e o autômato celular que se deseja representar (ca):
         
-        - size (int) - Largura do vetor
-        - it (int) - quantidade de iterações, ou seja, é a passagem de tempo
+        - size (int) : Largura do vetor
+        - it (int) : Quantidade de iterações, ou seja, é a passagem de tempo
         - ca (CellularAutomata) - Autômato celular cuja regra será utilizada para alterar os estados de cada célula.
-        - info (Str) - O arquivo é salvo na pasta /original/, subpasta do seu tipo, com o nome igual a sua regra. Caso deseje-se acrescentar outra informação, deve-se declará-la como uma string na variável info. 
+        - info (Str) : O arquivo é salvo na pasta /original/, subpasta do seu tipo, com o nome igual a sua regra. Caso deseje-se acrescentar outra informação, deve-se declará-la como uma string na variável info. 
         
         A partir desses parâmetros, o construtor instancia:
         
-        - file (File) - arquivo de texto (.txt) composto de uma matriz de dimensões size x it de bits. Cada bit tem valor de 0 a k-1.
-        - firstBit (int) - Estado que a célula central do vetor deve ter no início do crescimento. Varia de 0 a k-1.
+        - file (File) : Arquivo de texto (.txt) composto de uma matriz de dimensões size x it de bits. Cada bit tem valor de 0 a k-1.
+        - firstBit (int) : Estado que a célula central do vetor deve ter no início do crescimento. Varia de 0 a k-1.
         
         Então, o método setFile altera os estados das células do vetor it vezes. Em seguida, salva os estados em file. 
         
@@ -249,13 +252,12 @@ class AutomataText(object):
     
     
     def __startArray(self):
-        '''Cria um vetor de tamanho size x it composto de zeros'''  
+        '''Cria um vetor de tamanho size x it composto de zeros.'''  
         self.__array = zeros((self.it, self.size))
 
         
     def __putFirstLine(self):
-        '''Método que escreve a primeira linha no arquivo. É composta de zeros, com exceção do bit central, que ganha o valor de self.firstBit.
-        '''
+        '''Método que escreve a primeira linha no arquivo. É composta de zeros, com exceção do bit central, que ganha o valor de self.firstBit.'''
         mid = int (self.size/2)
         self.__array[0][mid] = int(self.firstBit)
  
@@ -398,7 +400,7 @@ class AutomataText(object):
         
         Edita o arquvio de texto criado na iniciação de acordo com o autômato. Em t = 0 (primeira linha) põe o primeiro bit com o valor firstBit. Começando em t = 1 (ou na segunda linha), são atualizados e salvos os estados de todas as células do autômato até que tenha sido feito o número de iterações solicitado. 
         
-        -firstBit (int) - estado da célula central do vetor em t = 0. Inteiro de 0 a k-1.
+        - firstBit (int) : estado da célula central do vetor em t = 0. Inteiro de 0 a k-1.
         '''
         filename = str(self.ca.rule) + info + '.txt'
         self.firstBit = firstBit
@@ -430,11 +432,7 @@ class AutomataText(object):
             self.__firstBit = firstBit
         else: 
             print('FirstBit deve estar entre 0 e ' + str(self.ca.k - 1) + '!')
-            
-    @property
-    def file(self):
-        return self.__file
-    
+
     @property
     def array(self):
         return self.array

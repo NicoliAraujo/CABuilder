@@ -7,10 +7,11 @@ Created on 11/03/2015
 '''
 
 from __future__ import unicode_literals
- 
-from cellularautomata.modules.ParserImgText import Parser, ImgtoText
+
 from cellularautomata.modules.CellularAutomata import ElementaryCode, TotalisticCode
-from cellularautomata.modules. import AutomataImage, AutomataText
+from cellularautomata.modules.ParserImgText import Parser, ImgtoText
+
+from cellularautomata.modules.CAOutput import AutomataImage, AutomataText
 
 
 if __name__ == '__main__':
@@ -25,7 +26,8 @@ if __name__ == '__main__':
 #         ParserSieve(str(ruletext.autocel.rule))
  
     ec = ElementaryCode(45)
-    ectext = AutomataText(5, 10, ec, '')
+    ectext = AutomataText(20, 10, ec, '')
+    ecimg = AutomataImage(10, ec, '')
 
 
 

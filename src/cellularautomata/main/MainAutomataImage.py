@@ -3,8 +3,9 @@ Created on 13/02/2015
 
 @author: matsu
 '''
-from cellularautomata.modules.CAOutput import AutomataImage
 from cellularautomata.modules.CellularAutomata import TotalisticCode, ElementaryCode
+
+from cellularautomata.modules.CAOutput import AutomataImage
 
 
 if __name__ == '__main__':
