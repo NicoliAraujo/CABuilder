@@ -5,7 +5,7 @@ Created on Jun 28, 2015
 '''
 from __future__ import unicode_literals
 from cellularautomata.modules.CellularAutomata import ElementaryCode, TotalisticCode
-from cellularautomata.modules.AutomataImage import AutomataImage
+from cellularautomata.modules.CAOutput import AutomataImage
 
 if __name__ == '__main__':
     print('Cellular Automata Builder')

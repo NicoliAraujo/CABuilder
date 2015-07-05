@@ -7,10 +7,10 @@ Created on 11/03/2015
 '''
 
 from __future__ import unicode_literals
-from cellularautomata.modules.AutomataText import AutomataText
-from cellularautomata.modules.ParserImgText import ParserSieve
+ 
+from cellularautomata.modules.ParserImgText import Parser, ImgtoText
 from cellularautomata.modules.CellularAutomata import ElementaryCode, TotalisticCode
-from cellularautomata.modules.AutomataImage import AutomataImage
+from cellularautomata.modules. import AutomataImage, AutomataText
 
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@ Created on 13/02/2015
 
 @author: matsu
 '''
-from cellularautomata.modules.AutomataImage import AutomataImage
+from cellularautomata.modules.CAOutput import AutomataImage
 from cellularautomata.modules.CellularAutomata import TotalisticCode, ElementaryCode
 
 

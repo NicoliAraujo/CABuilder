@@ -5,7 +5,7 @@ Created on 20/10/2014
 '''
 from __future__ import unicode_literals
 
-from cellularautomata.modules.AutomataImage import AutomataImage
+from cellularautomata.modules.CAOutput import AutomataImage
 from cellularautomata.modules.CellularAutomata import ElementaryCode
 
 if __name__ == '__main__':
