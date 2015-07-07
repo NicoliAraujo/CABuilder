@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DMain</class>
+ <widget class="QDialog" name="DMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>282</width>
+    <height>180</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Main</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../logo.png</normaloff>../logo.png</iconset>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>261</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="pushButtonGenNumSeq">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Generate Number Sequence</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButtonGenImg">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Generate Image</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButtonGenNumSeqFromImg">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Generate Number Sequence From Image</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButtonManNumSeq">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Manipulate Number Sequence</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButtonGenNumSeq</sender>
+   <signal>clicked()</signal>
+   <receiver>DMain</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>178</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>162</x>
+     <y>3</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonGenImg</sender>
+   <signal>clicked()</signal>
+   <receiver>DMain</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>274</x>
+     <y>52</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonGenNumSeqFromImg</sender>
+   <signal>clicked()</signal>
+   <receiver>DMain</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>288</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonManNumSeq</sender>
+   <signal>clicked()</signal>
+   <receiver>DMain</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>151</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>229</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

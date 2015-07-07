@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DManNumSeq</class>
+ <widget class="QDialog" name="DManNumSeq">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>472</width>
+    <height>462</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manipulate Number Sequence</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>logo.png</normaloff>logo.png</iconset>
+  </property>
+  <widget class="QLabel" name="labelQttBits">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>230</y>
+     <width>241</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Quantity of numbers between separators:</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditQttBits</cstring>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBoxRemChar">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>140</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Erase a character:</string>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelSeparator">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>200</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Separator:</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditSeparator</cstring>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonGenNewFile">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>410</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Generate New File!</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelOldFilePath">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>451</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>This code is made to alter the numbers' disposition in a integer-only sequence text file. This file has to be located in a subfolder of /Output/txtoutput/.  </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBoxBin">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>161</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Set Numbers To Binary</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelOldPathFile">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>291</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Text File Path: (ex: /fromimg/Elementary/30.txt )</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditOldFilePath</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditOldFilePath">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>451</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>451</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditQttBits">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>230</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditRemChar">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>140</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBoxSep">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>171</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Insert Numbers Separator</string>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditSeparator">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>200</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>350</y>
+     <width>451</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>270</y>
+     <width>451</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>The text file with the new sequence of numbers will be saved in &quot; /Output/txtoutput/treated/(automaton's type)/ (rule).txt &quot;. If there is another file with the same name in this folder, it will be overwritten. If you want to add some information to the file name, type it below:</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditInfo</cstring>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>260</y>
+     <width>451</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>lineEditOldFilePath</tabstop>
+  <tabstop>lineEditQttBits</tabstop>
+  <tabstop>checkBoxRemChar</tabstop>
+  <tabstop>lineEditRemChar</tabstop>
+  <tabstop>checkBoxBin</tabstop>
+  <tabstop>checkBoxSep</tabstop>
+  <tabstop>lineEditSeparator</tabstop>
+  <tabstop>pushButtonGenNewFile</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>checkBoxRemChar</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditRemChar</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>179</x>
+     <y>222</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxSep</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditSeparator</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>144</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxSep</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditQttBits</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>56</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonGenNewFile</sender>
+   <signal>clicked()</signal>
+   <receiver>DManNumSeq</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>426</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>384</x>
+     <y>417</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

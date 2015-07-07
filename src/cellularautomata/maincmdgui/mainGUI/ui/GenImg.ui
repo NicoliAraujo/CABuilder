@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DGenImg</class>
+ <widget class="QDialog" name="DGenImg">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>425</width>
+    <height>441</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Generate Image</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>logo.png</normaloff>logo.png</iconset>
+  </property>
+  <widget class="QRadioButton" name="radioButtonTotalistico">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Totalistic</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelStates">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>110</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Number of States (k):</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditK</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelRule">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Rule: </string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditRule</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>260</y>
+     <width>401</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>This automaton image will be saved in &quot;/Output/imgoutput/(automaton' type)/(rule).png&quot;. If there is another image with the same rule in the folder, it will be overwritten. If you desire to add some information the new image name, type it below:</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditInfo</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelSide">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>220</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Image side:</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditSide</cstring>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>250</y>
+     <width>401</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelSeed">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>110</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Seed:</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditSeed</cstring>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonGenerate">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>390</y>
+     <width>221</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Generate Automaton Image!</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButtonElementar">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>91</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Elementary</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditSide">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>220</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelSideInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>170</y>
+     <width>401</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>It will be generated a square image in &quot;.png&quot; format, which illustrates the described automaton's evolution. The pixels have colors ranging from white to black, each one representing a state of the automaton.</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditK">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>110</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditSeed">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>110</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>340</y>
+     <width>401</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>150</y>
+     <width>401</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditRule">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>110</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelTypeCA">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Cellular Automaton's Type:</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>radioButtonElementar</tabstop>
+  <tabstop>radioButtonTotalistico</tabstop>
+  <tabstop>lineEditRule</tabstop>
+  <tabstop>lineEditK</tabstop>
+  <tabstop>lineEditSeed</tabstop>
+  <tabstop>lineEditSide</tabstop>
+  <tabstop>lineEditInfo</tabstop>
+  <tabstop>pushButtonGenerate</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>radioButtonElementar</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditK</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>54</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButtonElementar</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditSeed</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>63</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>384</x>
+     <y>123</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButtonTotalistico</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditK</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>279</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButtonTotalistico</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditSeed</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>391</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonGenerate</sender>
+   <signal>clicked()</signal>
+   <receiver>DGenImg</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>403</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>382</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

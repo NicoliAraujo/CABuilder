@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Success</class>
+ <widget class="QDialog" name="Success">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>182</width>
+    <height>159</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Success</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../logo.png</normaloff>../logo.png</iconset>
+  </property>
+  <widget class="QLabel" name="labelSuccess">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Successfully Generated!</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonClose">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>110</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Close Program</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonMain">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>72</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Main Menu</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButtonMain</sender>
+   <signal>clicked()</signal>
+   <receiver>Success</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonClose</sender>
+   <signal>clicked()</signal>
+   <receiver>Success</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>155</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

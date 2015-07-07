@@ -4,7 +4,7 @@ Created on 03/03/2015
 
 @author: Nicoli Araújo
 
-Neste módulo estão classes que manipulam os arquivos de saída das classes AutomataText e AutomataImage. Essas classes transcrevem arquivos e imagens para arquivos compostos de sequências de npumeros binários ou decimais, para que possam ser avaliados por um software que teste sua pseudo-aleatoriedade.
+Neste módulo estão classes que manipulam os arquivos de saída das classes AutomataText e AutomataImage. As classes desde módulo transcrevem arquivos e imagens para arquivos compostos de sequências de npumeros binários ou decimais, para que possam ser avaliados por um software que teste sua pseudo-aleatoriedade.
     - ImgtoText pega uma imagem de um autômato celular totalístico ou elementar e a transforma em um arquivo de texto. 
     - Parser edita a forma como os números estão dispostos em um arquivo de texto. 
 '''
@@ -128,20 +128,19 @@ class ImgtoText():
 
 class Parser():
     '''Classe que altera a disposição dos dados de um arquivo de texto composto apenas de números inteiros, e armazena essas alterações em um novo arquivo. '''
-    def __init__(self, oldFilePath, info):
+    def __init__(self, oldFilePath):
         '''Construtor da classe Parser
         
-        Parâmetros de inicializão:
+        Parâmetro de inicializão:
             - oldFilePath (str) :indica o nome e a localização do arquivo que se deseja alterar desde as subpastas de /txtoutput/
-            - info (str) : informação que deve ser adicionada ao nome do novo arquivo a ser gerado 
-        A partir destew parâmetros, o construtor instancia:
-            - newFilePath (str) : localização e nome do novo arquivo. É instanciado utilizando o método setPath(). Arquivos criados nesta classe ficam localizados na pasta /treated/
+            
+        A partir deste parâmetro, o construtor instancia:
             - strData (str) : string que armazena o conteúdo a ser modificado e escrito no novo arquivo
         
         '''
-        self.newFilePath = self.setPath(oldFilePath, info)
-                
-        with open('../Output/txtoutput/' + oldFilePath, 'r+') as oldFile:
+        self.oldFilePath = oldFilePath
+        print(self.oldFilePath)
+        with open('../Output/txtoutput' + self.oldFilePath, 'r+') as oldFile:
             self.strData = oldFile.read()
         
     
@@ -183,9 +182,18 @@ class Parser():
         self.strData = newStr
 
                 
-    def setNewFile(self):
-        '''Escreve todas as mudanças realizadas no conteúdo do arquivo antigo em um novo arquivo de texto localizado em /txtoutput/treated/, com o mesmo nome do antigo, porém com as informações adicionais requeridas'''
+    def setNewFile(self, info):
+        '''Escreve todas as mudanças realizadas no conteúdo do arquivo antigo em um novo arquivo de texto localizado em /txtoutput/treated/, com o mesmo nome do antigo, porém com as informações adicionais requeridas.
         
+        Parâmetro:
+            - info (str) : informação que deve ser adicionada ao nome do novo arquivo a ser gerado 
+            
+        A partir de self.oldFilePath e info, é instanciado o nome e a localização do novo arquivo.
+            - newFilePath (str) : localização e nome do novo arquivo. É instanciado utilizando o método setPath(). Arquivos criados nesta classe ficam localizados na pasta /treated/
+        
+        Então, as alterações são repassadas para o novo arquivo.
+        '''
+        self.newFilePath = self.setPath(self.oldFilePath, info)
         with open (self.newFilePath, 'w') as self.newFile:
             self.newFile.truncate()
             self.newFile.write(self.strData)
@@ -193,24 +201,25 @@ class Parser():
         
     def setPath(self, oldFilePath, info):
         '''A partir do caminho do arquivo, define o tipo do autômato celular (e a pasta na qual o novo arquivo deve ser armazenado), e o nome que o novo arquivo deve ter. 
-        
+            
             - oldFilePath (str) : indica a localização e o nome do arquivo de texto
             - info (str) - O novo arquivo é salvo na pasta /treated/, subpasta do seu tipo, com o nome igual a sua regra. Caso deseje-se acrescentar outra informação, deve-se declará-la como uma string na variável info. 
         '''
         barra = 0
-        oldFileName = type = oldPath = ''
+        oldFileName = catype = oldPath = ''
         for i in oldFilePath:
             if (i !='/'):
-                if (barra ==0):
+                if (barra ==1):
                     oldPath +=i
-                if (barra == 1):
-                    type +=i
-                elif (barra == 2):
+                if (barra == 2):
+                    catype +=i
+                elif (barra == 3):
                     oldFileName+=i   
             elif (i == '/'):
                 barra +=1
         
         oldFileName = oldFileName[:-4] 
-        newFileName = oldFileName + info + '.txt'    
-        newFilePath = '../Output/txtoutput/treated/'  + type + '/' +  newFileName
+        newFileName = oldFileName + info + '.txt' 
+        print(newFileName)   
+        newFilePath = '../Output/txtoutput/treated/'  + catype + '/' +  newFileName
         return newFilePath

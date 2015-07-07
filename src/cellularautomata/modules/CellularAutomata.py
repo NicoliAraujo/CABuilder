@@ -41,7 +41,7 @@ class CellularAutomata(object):
         self.__rule = rule
         self.__k = k
         self.__seed = seed
-        self.__type = ''
+        self.__catype = ''
 
         self.__dictRule = self.setDictRule(self.rule, self.k)
     
@@ -116,12 +116,12 @@ class CellularAutomata(object):
         return self.__dictRule
     
     @property
-    def type(self):
-        return self.__type
+    def catype(self):
+        return self.__catype
     
-    @type.setter
-    def type(self, type):
-        self.__type = type
+    @catype.setter
+    def catype(self, catype):
+        self.__catype = catype
         
     @property
     def seed(self):
@@ -143,7 +143,7 @@ class ElementaryCode(CellularAutomata):
         """
 
         super().__init__(rule, k = 2, seed = 1)
-        self.type = 'Elementary'
+        self.catype = 'Elementary'
         
             
     def getNext (self, b1, b2, b3):
@@ -191,7 +191,7 @@ class TotalisticCode(CellularAutomata):
         Também é instanciado o tipo do autômato: Totalístico
         '''
         super().__init__(rule, k, seed)
-        self.type = 'Totalistic'
+        self.catype = 'Totalistic'
           
     def getNext (self, b1, b2, b3):
         """Retorna dictRule[b1+b2+b3]

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DGenNumSeqFromImg</class>
+ <widget class="QDialog" name="DGenNumSeqFromImg">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>423</width>
+    <height>356</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Generate Number Sequence From Image</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../logo.png</normaloff>../logo.png</iconset>
+  </property>
+  <widget class="QPushButton" name="pushButtonGenerate">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>290</y>
+     <width>281</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Generate Number Sequence From Image!</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>100</y>
+     <width>401</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditOldFilePath">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>60</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>401</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>It will be generated a new text file (&quot;.txt&quot;) composed by integres. Each number represents a cell state, which is represented by a color in the parent image. A new file will be saved in &quot; /Output/txtoutput/fromimg/(automaton's type)/(rule).txt &quot;. If there is another file with the same name on this folder, it will be overwritten. If you want to add some information to the file name, type it below:</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditInfo</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelImgFile">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>201</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Image File Name (ex: &quot;45.png&quot;) : </string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditOldFilePath</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>240</y>
+     <width>401</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelRule">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>241</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Cellular Automaton's Number of States: </string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditRule</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditRule">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>10</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>lineEditRule</tabstop>
+  <tabstop>lineEditOldFilePath</tabstop>
+  <tabstop>lineEditInfo</tabstop>
+  <tabstop>pushButtonGenerate</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButtonGenerate</sender>
+   <signal>clicked()</signal>
+   <receiver>DGenNumSeqFromImg</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>306</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>46</x>
+     <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

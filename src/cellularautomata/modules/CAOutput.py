@@ -197,7 +197,7 @@ class AutomataImage(object):
         
         Método que salva a imagem criada no caminho path, com o formato ".png". No nome do arquivo de imagem salvo consta o nome do autômato.
         """
-        self.image.save('../Output/imgoutput/' + str(self.ca.type) + '/' + self.name) 
+        self.image.save('../Output/imgoutput/' + str(self.ca.catype) + '/' + self.name) 
         self.image.close()
     
     @property
@@ -402,10 +402,10 @@ class AutomataText(object):
         
         - firstBit (int) : estado da célula central do vetor em t = 0. Inteiro de 0 a k-1.
         '''
-        filename = str(self.ca.rule) + info + '.txt'
+        filename = str(self.ca.rule) + str(info) + '.txt'
         self.firstBit = firstBit
         self.__startArray()
-        with open ('../Output/txtoutput/original/' + self.ca.type + '/' + filename , 'w') as self.file:
+        with open ('../Output/txtoutput/original/' + self.ca.catype + '/' + filename , 'w') as self.file:
         
             self.__putFirstLine()
 

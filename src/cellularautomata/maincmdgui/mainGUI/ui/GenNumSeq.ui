@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DGenNumSeq</class>
+ <widget class="QDialog" name="DGenNumSeq">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>441</width>
+    <height>477</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Generate Number Sequence</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>logo.png</normaloff>logo.png</iconset>
+  </property>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>421</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonGenerate">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>420</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Generate Number Sequence!</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelSideIt">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>421</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>It will be generated a text file (.txt) composed by integers. Each number represents a state. The file shows the automaton's evolution as time passes. Thus, each row's number  correspond a cell in the automaton, and each row represent the automaton' state in that instant.</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelIt">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>240</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Quantity of lines:</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditIt</cstring>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButtonElementar">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>91</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Elementary</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>421</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <strikeout>false</strikeout>
+     <kerning>false</kerning>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>The text file with the sequence of generated numbers will be saved in &quot; /Output/txtoutput/original/(automaton's type)/ (rule).txt &quot;. If there is another file with the same name in this folder, it will be overwritten. If you want to add some information to the file name, type it below:</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditInfo</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>370</y>
+     <width>421</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>280</y>
+     <width>421</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelStates">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>110</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Number of States (k):</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditK</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditSeed">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>110</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditRule">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>110</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditIt">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>240</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditSide">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>240</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButtonTotalistico">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Totalistic</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelTypeCA">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Cellular Automaton's Type:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelRule">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Rule:</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditRule</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelSeed">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>110</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Seed:</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditSeed</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditK">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>110</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelSide">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>240</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Quantity of cells in a line:</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEditSide</cstring>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>radioButtonElementar</tabstop>
+  <tabstop>radioButtonTotalistico</tabstop>
+  <tabstop>lineEditRule</tabstop>
+  <tabstop>lineEditK</tabstop>
+  <tabstop>lineEditSeed</tabstop>
+  <tabstop>lineEditSide</tabstop>
+  <tabstop>lineEditIt</tabstop>
+  <tabstop>lineEditInfo</tabstop>
+  <tabstop>pushButtonGenerate</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>radioButtonElementar</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditK</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>79</x>
+     <y>60</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>293</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButtonElementar</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditSeed</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>47</x>
+     <y>63</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButtonTotalistico</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditK</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>280</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButtonTotalistico</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEditSeed</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>396</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonGenerate</sender>
+   <signal>clicked()</signal>
+   <receiver>DGenNumSeq</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>271</x>
+     <y>426</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>375</x>
+     <y>427</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -25,13 +25,15 @@ if __name__ == '__main__':
 #         ruletext.setFile()
 #         ParserSieve(str(ruletext.autocel.rule))
  
-    ec = ElementaryCode(45)
-    ectext = AutomataText(20, 10, ec, '')
-    ecimg = AutomataImage(10, ec, '')
-
-
-
-    #===========================================================================
+#===============================================================================
+#     ec = ElementaryCode(45)
+#     ectext = AutomataText(20, 10, ec, '')
+#     ecimg = AutomataImage(10, ec, '')
+# 
+# 
+# 
+#     #===========================================================================
+#===============================================================================
     # ruletext.setFile()
     # ParserSieve(str(ruletext.autocel.rule))
     #  
@@ -41,5 +43,8 @@ if __name__ == '__main__':
     #===========================================================================
     # print(str(e) + " :Operação terminada" )
     #===========================================================================
-    tc = TotalisticCode(1074, 3, 1)
-    tctext = AutomataText(10, 10, tc, '')
+    tc = TotalisticCode(600, 3, 1)
+    tctext = AutomataText(10, 100, tc, '')
+    parsertctext = Parser('/original/Totalistic/600.txt')
+    parsertctext.removeSeparator('\n')
+    parsertctext.setNewFile('')

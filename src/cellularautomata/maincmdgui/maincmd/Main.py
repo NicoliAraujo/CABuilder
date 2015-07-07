@@ -2,7 +2,8 @@
 Created on Jun 28, 2015
 
 @author: Nicoli
-'''
+
+
 from __future__ import unicode_literals
 
 from cellularautomata.modules.CellularAutomata import ElementaryCode, TotalisticCode
@@ -42,4 +43,9 @@ if __name__ == '__main__':
                 
     elif media == 'Text':
         lenght = int(input())
-        height = int(input())
+        height = int(input())'''
+        
+        
+        
+
+
