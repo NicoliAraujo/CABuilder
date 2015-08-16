@@ -1,4 +1,10 @@
 eclipse.preferences.version=1
+encoding//cellularautomata/maincmdgui/mainGUI/genimg.py=utf-8
+encoding//cellularautomata/maincmdgui/mainGUI/gennumseq.py=utf-8
+encoding//cellularautomata/maincmdgui/mainGUI/gennumseqfromimg.py=utf-8
+encoding//cellularautomata/maincmdgui/mainGUI/mainnn.py=utf-8
+encoding//cellularautomata/maincmdgui/mainGUI/mannumseq.py=utf-8
+encoding//cellularautomata/maincmdgui/mainGUI/success.py=utf-8
 encoding//cellularautomata/maincmdgui/maincmd/MainAutomataText.py=utf-8
 encoding//cellularautomata/modules/CAOutput.py=utf-8
 encoding//cellularautomata/modules/CellularAutomata.py=utf-8
