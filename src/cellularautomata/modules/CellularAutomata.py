@@ -65,10 +65,12 @@ class CellularAutomata(object):
         """
         ruleInKBase = IntKBase(rule, k).numInBase
         self.__dictRule = {}
-        if (len(ruleInKBase) < 8):
-            while (len(ruleInKBase) < 8):
+        numComb = self.k**3 #o número de combinações de estados de um automato é igual ao numero de estados elevado ao cubo
+        if (len(ruleInKBase) < numComb):
+            while (len(ruleInKBase) < numComb):
                 ruleInKBase = "0" + ruleInKBase 
-        i = 7
+        
+        i = numComb-1
         for d in ruleInKBase:
             self.__dictRule[i] = int(d)
             i -=1

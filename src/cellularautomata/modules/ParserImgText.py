@@ -33,7 +33,7 @@ class ImgtoText():
         - info (str) :
                           
         Utilizando-se estes parâmetros, o construtor instancia:
-        - type (str) : a partir do caK, o autômato tem seu tipo detectado e classificado em Elementar o Totalistico
+        - catype (str) : a partir do caK, o autômato tem seu tipo detectado e classificado em Elementar o Totalistico
         - size (int) : tamanho da imagem que deve ser manipulada
         - dictTxt (dict) : dicionário que relaciona as cores que cada pixel da imagem pode ter com os estados possíveis do autômato, que deverão ser escritos no arquivo.
         - filename (str) : nome do arquivo resultante. É utilizado como base o nome da imagem
@@ -42,10 +42,10 @@ class ImgtoText():
         
         '''
         self.__caK = caK
-        self.__type = self.__filename = ''
+        self.__catype = self.__filename = ''
         
-        self.type = self.caK
-        self.__caImage = Image.open ('../Output/imgoutput/' + str(self.type) + '/' + str(caImageName), 'r')
+        self.catype = self.caK
+        self.__caImage = Image.open ('../Output/imgoutput/' + str(self.catype) + '/' + str(caImageName), 'r')
         
         (self.size, self.size) = self.caImage.size
         self.__dictTxt = self.setDictTxt(self.caK)
@@ -89,17 +89,17 @@ class ImgtoText():
         self.caImage.close()
     
     @property
-    def type (self):
+    def catype (self):
         return self.__type
     
-    @type.setter
-    def type(self, caK):
+    @catype.setter
+    def catype(self, caK):
         caK = int (caK)
         if caK == 2:
-            self.__type = 'Elementary'
+            self.__catype = 'Elementary'
         elif caK >= 3:
-            self.__type = 'Totalistic'
-        return self.__type  
+            self.__catype = 'Totalistic'
+        return self.__catype  
     
     @property
     def filename(self):

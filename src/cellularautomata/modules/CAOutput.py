@@ -44,7 +44,7 @@ class AutomataImage(object):
         self.__image = Image.new("L", (self.side, self.side), "white")
 
         self.__ca = ca
-        self.__name = str(info) + str(self.ca.rule)  + '.png'        self.__dictColor = self.setDictColor(self.ca.k)
+        self.__name =  str(self.ca.rule) + str(info) + '.png'        self.__dictColor = self.setDictColor(self.ca.k)
         
         self.setImage(self.ca.seed)
         self.save()
@@ -197,7 +197,7 @@ class AutomataImage(object):
         
         Método que salva a imagem criada no caminho path, com o formato ".png". No nome do arquivo de imagem salvo consta o nome do autômato.
         """
-        self.image.save('../Output/imgoutput/' + str(self.ca.catype) + '/' + self.name) 
+        self.image.save('../../Output/imgoutput/' + str(self.ca.catype) + '/' + self.name) 
         self.image.close()
     
     @property
