@@ -405,7 +405,7 @@ class AutomataText(object):
         filename = str(self.ca.rule) + str(info) + '.txt'
         self.firstBit = firstBit
         self.__startArray()
-        with open ('../Output/txtoutput/original/' + self.ca.catype + '/' + filename , 'w') as self.file:
+        with open ('../../Output/txtoutput/original/' + self.ca.catype + '/' + filename , 'w') as self.file:
         
             self.__putFirstLine()
 

@@ -140,7 +140,7 @@ class Parser():
         '''
         self.oldFilePath = oldFilePath
         print(self.oldFilePath)
-        with open('../Output/txtoutput' + self.oldFilePath, 'r+') as oldFile:
+        with open('../../Output/txtoutput' + self.oldFilePath, 'r+') as oldFile:
             self.strData = oldFile.read()
         
     
@@ -221,5 +221,5 @@ class Parser():
         oldFileName = oldFileName[:-4] 
         newFileName = oldFileName + info + '.txt' 
         print(newFileName)   
-        newFilePath = '../Output/txtoutput/treated/'  + catype + '/' +  newFileName
+        newFilePath = '../../Output/txtoutput/treated/'  + catype + '/' +  newFileName
         return newFilePath
