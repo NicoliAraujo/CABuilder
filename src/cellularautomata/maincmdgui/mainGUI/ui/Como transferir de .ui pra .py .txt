@@ -1,1 +1,11 @@
+Feito usando o PyQt5 e o Qt5
+
+
 pyuic5 -x helloworld.ui -o helloworld.py
+
+pyuic5 -x genimg.ui -o genimg.pyw
+pyuic5 -x gennumseq.ui -o gennumseq.pyw
+pyuic5 -x gennumseqfromimg.ui -o gennumseqfromimg.pyw
+pyuic5 -x mainguimain.ui -o mainguimain.pyw
+pyuic5 -x mannumseq.ui -o mannumseq.pyw
+pyuic5 -x success.ui -o success.pyw

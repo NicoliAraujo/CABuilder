@@ -27,13 +27,13 @@ if __name__ == '__main__':
  
 #===============================================================================
 #     ec = ElementaryCode(45)
-#     ectext = AutomataText(20, 10, ec, '')
+#     ectext = AutomataText(20, 10, ec, '');
 
     #===========================================================================
     a = [1022, 1006, 1092, 1140, 1113, 1055, 600, 843, 870, 1085, 1167, 1329, 1572, 1815, 1942, 1599,993, 777, 1041, 1038, 2022,  1020, 1074, 1041, 177, 912 ,1636 ,2049,2048, 583 ,578]
     for i in a:
         tc = TotalisticCode(i, 3, 1)
-        tctext = AutomataText(10, 100, tc, '')
+        tctext = AutomataText(100, 10000, tc, '')
         parsertctext = Parser('/original/Totalistic/' + str(i) + '.txt')
         parsertctext.removeSeparator('\n')
         parsertctext.setNewFile('')
